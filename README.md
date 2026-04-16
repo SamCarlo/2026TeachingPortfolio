@@ -1,5 +1,5 @@
 # 2026 Teaching Portfolio
-## Samuel Ryan Carlos | ELA 8 | Hawaiʻi Teacher Standards Board: License Renewal
+## Samuel Ryan Carlos
 
 ---
 
