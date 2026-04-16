@@ -1,6 +1,8 @@
 # NWEA Data Agent
 ## Natural Language Interface for Standardized Test Data | Spring 2026
 
+[Open in Streamlit](https://sam-nwea-2026.streamlit.app/)
+
 ---
 
 ## Overview
