@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Writing — Three-Pass Draft Sheet — Due [Date]</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 11pt;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 0.6in 0.7in;
+            max-width: 8.5in;
+            margin: 0 auto;
+        }
+
+        /* ── Header ── */
+        .title {
+            font-size: 17pt;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 0.01em;
+        }
+
+        .subtitle {
+            font-size: 10pt;
+            text-align: center;
+            color: #1a1a1a;
+            margin-top: 3px;
+            margin-bottom: 14px;
+        }
+
+        .student-info {
+            display: flex;
+            gap: 20px;
+            border-top: 1.5px solid #888;
+            padding-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .info-field {
+            flex: 1;
+        }
+
+        .info-label {
+            font-size: 7.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .info-line {
+            border-bottom: 1px solid #555;
+            height: 18px;
+            display: block;
+        }
+
+        /* ── Sections ── */
+        .section {
+            margin-bottom: 18px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            page-break-inside: avoid;
+        }
+
+        .section-header {
+            padding: 7px 13px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .section-num {
+            font-size: 8pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #1a1a1a;
+        }
+
+        .section-title {
+            font-size: 13pt;
+            font-weight: bold;
+        }
+
+        .section-skill {
+            margin-left: auto;
+            font-size: 8.5pt;
+            font-style: italic;
+            color: #1a1a1a;
+        }
+
+        .section-body {
+            padding: 13px 14px;
+        }
+
+        .instruction {
+            font-size: 9.5pt;
+            font-style: italic;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        /* Section color themes */
+        .seq .section-header  { background: #dbeafe; }   /* blue  */
+        .show .section-header { background: #dcfce7; }   /* green */
+        .voice .section-header{ background: #fef9c3; }   /* amber */
+
+        /* ── Section 0: Overview ── */
+        .overview {
+            margin-bottom: 18px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            page-break-inside: avoid;
+            page-break-after: always;
+        }
+
+        .overview .section-header {
+            background: #f3f4f6;
+            border-bottom: 1px solid #d1d5db;
+        }
+
+        .overview-body {
+            padding: 16px 18px;
+            min-height: 4.5in;
+        }
+
+        .overview-body p {
+            font-size: 11pt;
+            line-height: 1.75;
+            margin-bottom: 1em;
+            color: #1a1a1a;
+        }
+
+        .overview-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .teacher-note {
+            font-size: 8.5pt;
+            font-style: italic;
+            color: #1a1a1a;
+            border-top: 1px dashed #d1d5db;
+            padding-top: 10px;
+            margin-top: 16px;
+        }
+
+        /* ── Section 1: Sequence ── */
+        .question-block {
+            margin-bottom: 13px;
+        }
+
+        .question {
+            font-size: 10pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .write-lines {
+            width: 100%;
+        }
+
+        .write-line {
+            display: block;
+            border-bottom: 1px solid #bbb;
+            height: 24px;
+            width: 100%;
+            margin-bottom: 1px;
+        }
+
+        .cause-effect-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 4px;
+            padding: 9px 13px;
+            margin-top: 12px;
+        }
+
+        .ce-label {
+            font-size: 8pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #1d4ed8;
+            margin-bottom: 7px;
+        }
+
+        .ce-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            margin-bottom: 5px;
+            font-size: 10pt;
+        }
+
+        .ce-word {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .ce-blank {
+            flex: 1;
+            border-bottom: 1px solid #93c5fd;
+            min-width: 60px;
+        }
+
+        /* ── Section 2: Show ── */
+        .lined-area {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #fafafa;
+            background-image: repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                transparent 27px,
+                #ddd 27px,
+                #ddd 28px
+            );
+            background-position: 0 27px;
+            height: 196px;
+            margin-bottom: 11px;
+        }
+
+        .checklist-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 4px;
+            padding: 9px 13px;
+        }
+
+        .box-label {
+            font-size: 8pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #166534;
+            margin-bottom: 6px;
+        }
+
+        .checklist-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist-box li {
+            font-size: 9.5pt;
+            padding: 2px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.4;
+        }
+
+        .checklist-box li::before {
+            content: '☐';
+            font-size: 12pt;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        /* ── Section 3: Voice ── */
+        .voice-prompt {
+            background: #fefce8;
+            border: 1px solid #fde68a;
+            border-radius: 4px;
+            padding: 9px 13px;
+            font-size: 9.5pt;
+            margin-bottom: 11px;
+            line-height: 1.5;
+        }
+
+        .voice-prompt strong {
+            color: #92400e;
+        }
+
+        /* ── Print ── */
+        @media print {
+            body {
+                padding: 0.5in 0.6in;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">Story Writing — Three-Pass Draft Sheet — Due [Date]</div>
+    <div class="subtitle">[Brief task description — e.g. Character and Setting]</div>
+
+    <div class="student-info">
+        <div class="info-field" style="flex:2">
+            <span class="info-label">Name</span>
+            <span class="info-line"></span>
+        </div>
+        <div class="info-field">
+            <span class="info-label">Date</span>
+            <span class="info-line"></span>
+        </div>
+        <div class="info-field" style="flex:2">
+            <span class="info-label">Cohort</span>
+            <span class="info-line"></span>
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 0 — THIS WEEK'S TASK
+    ══════════════════════════════════════ -->
+    <div class="section overview">
+        <div class="section-header">
+            <span class="section-title">This Week's Task</span>
+        </div>
+        <div class="overview-body">
+
+            <!-- Teacher: replace everything between these comments with your
+                 explanation for this week's cohort (500 words or less).
+                 Tell students what part of the story they're developing,
+                 why it matters, what to think about as they work,
+                 and any key terms or concepts from the Amplify guide
+                 that are relevant to this cohort. -->
+
+            <p>[Stage name and brief context — what part of the story are we in?]</p>
+
+            <p>[What is the student's job this week? What should their writing accomplish?]</p>
+
+            <p>[What should they keep in mind about their character, their problem, and the direction the story is heading?]</p>
+
+            <p>[Any craft reminder — a technique from class, a question to carry into their writing, or a common mistake to avoid.]</p>
+
+            <!-- End teacher content -->
+
+            <p class="teacher-note">Teacher note: this section is for your weekly explanation (500 words or less). Delete this note and the placeholder paragraphs above before printing.</p>
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 1 — SEQUENCE IT
+    ══════════════════════════════════════ -->
+    <div class="section seq">
+        <div class="section-header">
+            <span class="section-num">Section 1</span>
+            <span class="section-title">Sequence It</span>
+            <span class="section-skill">Skill: Logical Sequencing</span>
+        </div>
+        <div class="section-body">
+            <p class="instruction">Plan what happens in this cohort. Answer the questions below — no prose yet, just decisions. Each answer should follow logically from the one before it.</p>
+
+            <div class="question-block">
+                <div class="question">Q1. &nbsp;<!-- Teacher: insert question for this cohort --></div>
+                <span class="write-lines">
+                    <span class="write-line"></span>
+                    <span class="write-line"></span>
+                </span>
+            </div>
+
+            <div class="question-block">
+                <div class="question">Q2. &nbsp;<!-- Teacher: insert question for this cohort --></div>
+                <span class="write-lines">
+                    <span class="write-line"></span>
+                    <span class="write-line"></span>
+                </span>
+            </div>
+
+            <div class="question-block">
+                <div class="question">Q3. &nbsp;<!-- Teacher: insert question for this cohort --></div>
+                <span class="write-lines">
+                    <span class="write-line"></span>
+                    <span class="write-line"></span>
+                </span>
+            </div>
+
+            <div class="question-block">
+                <div class="question">Q4. &nbsp;<!-- Teacher: insert question for this cohort --></div>
+                <span class="write-lines">
+                    <span class="write-line"></span>
+                    <span class="write-line"></span>
+                </span>
+            </div>
+
+            <div class="cause-effect-box">
+                <div class="ce-label">Cause &amp; Effect Summary</div>
+                <div class="ce-row">
+                    <span class="ce-word">Because</span>
+                    <span class="ce-blank"></span>
+                    <span class="ce-word">, my MC does</span>
+                    <span class="ce-blank"></span>
+                </div>
+                <div class="ce-row">
+                    <span class="ce-word">, which causes</span>
+                    <span class="ce-blank"></span>
+                    <span class="ce-word">.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 2 — SHOW IT
+    ══════════════════════════════════════ -->
+    <div class="section show">
+        <div class="section-header">
+            <span class="section-num">Section 2</span>
+            <span class="section-title">Show It</span>
+            <span class="section-skill">Skill: Showing</span>
+        </div>
+        <div class="section-body">
+            <p class="instruction">Pick <strong>one moment</strong> from your sequence above and write it as a scene. No summarizing, no stating emotions — show through action, dialogue, and sensory detail.</p>
+            <div class="lined-area"></div>
+            <div class="checklist-box">
+                <div class="box-label">Before you move on, check:</div>
+                <ul>
+                    <li>I showed what my character does, not just what they feel</li>
+                    <li>I included at least one sensory detail (sound, smell, touch, taste, or sight)</li>
+                    <li>I included body language or a physical action</li>
+                    <li>I did not summarize — every sentence is in-scene, not reported</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 3 — VOICE IT
+    ══════════════════════════════════════ -->
+    <div class="section voice">
+        <div class="section-header">
+            <span class="section-num">Section 3</span>
+            <span class="section-title">Voice It</span>
+            <span class="section-skill">Skill: Voice</span>
+        </div>
+        <div class="section-body">
+            <p class="instruction">Choose one passage from Section 2 and rewrite it below, focusing on your character's voice. Include at least one line of dialogue.</p>
+            <div class="voice-prompt">
+                <strong>Sentence length challenge:</strong> Somewhere in this rewrite, place a very short sentence right next to a long one. Read them aloud. Does the contrast feel right for this moment in the story? Be ready to explain your choice.
+            </div>
+            <div class="lined-area"></div>
+        </div>
+    </div>
+
+</body>
+</html>

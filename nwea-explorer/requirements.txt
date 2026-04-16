@@ -1,0 +1,7 @@
+flask
+textual
+openai
+python-dotenv
+pandas
+scikit-learn
+tabulate

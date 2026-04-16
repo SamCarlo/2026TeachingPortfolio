@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Holds the Rising Action Together?</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 10pt;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 0.45in 0.55in;
+            max-width: 8.5in;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 18pt;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 0.01em;
+            margin-bottom: 3px;
+        }
+
+        .page-subtitle {
+            font-size: 10pt;
+            text-align: center;
+            color: #555;
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+
+        .intro {
+            font-size: 10pt;
+            line-height: 1.6;
+            margin-bottom: 14px;
+            text-align: center;
+            color: #333;
+            max-width: 6.2in;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .card {
+            border-radius: 6px;
+            border: 1.5px solid;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 6px 11px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-icon {
+            font-size: 14pt;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 10.5pt;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 7px 11px 9px 11px;
+            font-size: 9.5pt;
+            line-height: 1.55;
+        }
+
+        .card-body .what {
+            margin-bottom: 3px;
+        }
+
+        .card-body .example {
+            font-style: italic;
+            color: #444;
+            font-size: 9pt;
+        }
+
+        .card-body .example::before {
+            content: 'e.g. ';
+            font-style: normal;
+            font-weight: bold;
+            color: #666;
+        }
+
+        /* Color themes per card */
+        .c1 { border-color: #fca5a5; }
+        .c1 .card-header { background: #fee2e2; }
+
+        .c2 { border-color: #93c5fd; }
+        .c2 .card-header { background: #dbeafe; }
+
+        .c3 { border-color: #a78bfa; }
+        .c3 .card-header { background: #ede9fe; }
+
+        .c4 { border-color: #6ee7b7; }
+        .c4 .card-header { background: #d1fae5; }
+
+        .c5 { border-color: #fcd34d; }
+        .c5 .card-header { background: #fef3c7; }
+
+        .c6 { border-color: #86efac; }
+        .c6 .card-header { background: #dcfce7; }
+
+        .c7 { border-color: #f9a8d4; }
+        .c7 .card-header { background: #fce7f3; }
+
+        /* Last card spans full width */
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .bottom-note {
+            border-top: 1px dashed #ccc;
+            padding-top: 9px;
+            font-size: 9pt;
+            color: #555;
+            text-align: center;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .bottom-note strong {
+            font-style: normal;
+            color: #1a1a1a;
+        }
+
+        @media print {
+            body { padding: 0.45in 0.55in; }
+            * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-title">What Holds the Rising Action Together?</div>
+    <div class="page-subtitle">A reference guide for story builders</div>
+
+    <p class="intro">In the rising action, your character keeps pushing toward their goal — but nothing is working. Every event needs to connect to the one before it. Here are seven things that can serve as the <strong>thread</strong> running through your rising action:</p>
+
+    <div class="grid">
+
+        <div class="card c1">
+            <div class="card-header">
+                <span class="card-icon">&#x1F9CA;</span>
+                <span class="card-title">The Antagonist</span>
+            </div>
+            <div class="card-body">
+                <div class="what">A person, force, or system that keeps getting in the way — not once, but again and again.</div>
+                <div class="example">Draco keeps humiliating Harry. Voldemort's influence spreads across every obstacle.</div>
+            </div>
+        </div>
+
+        <div class="card c2">
+            <div class="card-header">
+                <span class="card-icon">&#x1F9E0;</span>
+                <span class="card-title">The MC's Flaw</span>
+            </div>
+            <div class="card-body">
+                <div class="what">Your MC keeps failing for the same reason — they haven't changed yet. Their weakness shapes every decision.</div>
+                <div class="example">Harry's impulsiveness makes each new obstacle worse than it has to be.</div>
+            </div>
+        </div>
+
+        <div class="card c3">
+            <div class="card-header">
+                <span class="card-icon">&#x1F50D;</span>
+                <span class="card-title">The Central Mystery</span>
+            </div>
+            <div class="card-body">
+                <div class="what">A question the reader — and MC — can't stop thinking about. Each event reveals a clue or deepens the mystery.</div>
+                <div class="example">What is in the third-floor corridor? What was Voldemort after? Each chapter inches closer.</div>
+            </div>
+        </div>
+
+        <div class="card c4">
+            <div class="card-header">
+                <span class="card-icon">&#x1F91D;</span>
+                <span class="card-title">A Key Relationship</span>
+            </div>
+            <div class="card-body">
+                <div class="what">A friendship, rivalry, or alliance that grows or breaks under pressure. The relationship's state mirrors the story's tension.</div>
+                <div class="example">Harry, Ron, and Hermione's friendship is tested, broken, and rebuilt as their situation gets more dangerous.</div>
+            </div>
+        </div>
+
+        <div class="card c5">
+            <div class="card-header">
+                <span class="card-icon">&#x23F3;</span>
+                <span class="card-title">A Ticking Clock</span>
+            </div>
+            <div class="card-body">
+                <div class="what">A deadline or shrinking window that makes every failure feel more costly. Each event eats away at the time left.</div>
+                <div class="example">The Sorcerer's Stone is about to be stolen — and each failed attempt to act brings Voldemort closer to getting it.</div>
+            </div>
+        </div>
+
+        <div class="card c6">
+            <div class="card-header">
+                <span class="card-icon">&#x1F517;</span>
+                <span class="card-title">Cause and Effect</span>
+            </div>
+            <div class="card-body">
+                <div class="what">One event causes the next. Your MC's response to each problem creates a new, bigger problem.</div>
+                <div class="example">Harry gets detention → misses Quidditch practice → loses the match → is banned from flying → can no longer pursue clues.</div>
+            </div>
+        </div>
+
+        <div class="card c7 full-width">
+            <div class="card-header">
+                <span class="card-icon">&#x1F3DB;&#xFE0F;</span>
+                <span class="card-title">A Recurring Place or System</span>
+            </div>
+            <div class="card-body">
+                <div class="what">The same location or institution keeps showing up — but it means something different each time. The MC's relationship to it changes as the stakes rise.</div>
+                <div class="example">Hogwarts starts as a safe haven. By the end of the rising action, every corridor feels dangerous — the school itself has become part of the threat.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bottom-note">
+        <strong>Your story doesn't need all seven.</strong> Pick one or two that fit your MC's situation and let them run through your whole rising action. Ask yourself: <em>what is the thread my reader will be following?</em>
+    </div>
+
+</body>
+</html>
