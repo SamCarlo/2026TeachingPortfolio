@@ -17,7 +17,7 @@ htsb/
   5010.pdf                    HTSB Form RA 5010, completed and signed
 
 philosophy/
-  manifesto.md                Teaching philosophy (15 principles)
+  README.md                   Teaching philosophy (15 principles)
 ```
 
 ---
@@ -141,7 +141,7 @@ broader community.
 - `curriculum-pipeline/cycle-01-argument-essay`: Documented teacher feedback and
   instructional adjustments in response to observed student performance at each stage
 - `curriculum-pipeline/cycle-02-short-story`: First unit built in full accordance with
-  the teaching philosophy documented in `philosophy/manifesto.md`; reflects on the
+  the teaching philosophy documented in `philosophy/`; reflects on the
   ethical use of AI as an invisible production tool under teacher control
 - `nwea-agent`: Teacher-built data tool demonstrating applied professional learning in
   software development and responsible AI use
