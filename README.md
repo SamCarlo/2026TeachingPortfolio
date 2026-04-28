@@ -13,11 +13,16 @@ curriculum-pipeline/
 nwea-agent/                   Natural language interface for MAP Growth data
 nwea-explorer/                Terminal viewer for MAP Growth data
 
-htsb/
-  5010.pdf                    HTSB Form RA 5010, completed and signed
-
 philosophy/
   README.md                   Teaching philosophy (15 principles)
+
+supporting/
+  2404_5010 Updated FINAL.pdf          HTSB Form RA 5010, updated and signed
+  2409_BERC 4 habits portfolio.pdf     PD portfolio: neuroscience-informed learning routines
+  251104_debi observation_portfolio.pdf  Formal classroom observation, November 2025
+  26_5010_Redacted.pdf                 HTSB Form RA 5010, redacted copy
+  26_lesson plan comments debi_portfolio.pdf  Written lesson plan feedback from cooperating teacher
+  260226_meeting notes.pdf             Meeting notes, February 2026
 ```
 
 ---
@@ -61,6 +66,9 @@ positive social interaction, active engagement, and self-motivation.
 - `curriculum-pipeline/cycle-02-short-story`: Published author visits twice per week to
   read drafts and work directly with students; hand-drawn classroom posters provide
   persistent visual scaffolds for story structure and character motivation
+- `supporting/2409_BERC 4 habits portfolio.pdf`: Professional learning in neuroscience-informed
+  environment design, focused on daily routines that prepare students cognitively and
+  emotionally for the task of learning
 
 ---
 
@@ -143,6 +151,10 @@ broader community.
 - `curriculum-pipeline/cycle-02-short-story`: First unit built in full accordance with
   the teaching philosophy documented in `philosophy/`; reflects on the
   ethical use of AI as an invisible production tool under teacher control
+- `supporting/2409_BERC 4 habits portfolio.pdf`: Completed PD portfolio documenting
+  participation in a professional learning sequence on neuroscientifically optimized
+  learning environments, with specific application to daily classroom routines that
+  prime students for learning
 - `nwea-agent`: Teacher-built data tool demonstrating applied professional learning in
   software development and responsible AI use
 - `nwea-explorer`: Personal data analysis tool built to support professional
