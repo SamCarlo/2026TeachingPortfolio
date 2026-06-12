@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ELA 7-8 Scope &amp; Sequence · 2026-2027 · Mr. Carlos</title>
+<style>
+  :root {
+    --ink: #1f2933;
+    --slate: #52606d;
+    --teal: #2c6e8f;
+    --teal-deep: #1d5673;
+    --gold: #d9a531;
+    --gold-soft: #e8c878;
+    --mist: #f4f6f8;
+    --sky: #eaf2f6;
+    --cream: #fff8ec;
+    --line: #d7dce1;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Liberation Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: #e7eaed;
+  }
+  .serif { font-family: "Liberation Serif", Georgia, "Times New Roman", serif; }
+
+  .sheet {
+    width: 8.5in;
+    height: 11in;
+    background: #fff;
+    margin: 0.25in auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,.22);
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  @media print {
+    body { background: #fff; }
+    .sheet { margin: 0; box-shadow: none; }
+  }
+  @page { size: letter; margin: 0; }
+
+  /* ============ COVER ============ */
+  .cover { background: var(--ink); color: #fff; }
+  .cover .art { position: absolute; inset: 0; }
+  .cover .ring {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.14);
+  }
+  .cover .sun {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle at 38% 35%, var(--gold-soft), var(--gold) 65%);
+    width: 3.6in; height: 3.6in; top: -1.15in; right: -0.95in;
+  }
+  .cover .sun2 {
+    position: absolute; border-radius: 50%;
+    border: 2px solid var(--gold);
+    width: 4.7in; height: 4.7in; top: -1.7in; right: -1.5in;
+    opacity: .55;
+  }
+  .cover .band {
+    position: absolute; left: -2in; right: -2in; height: 1.5in;
+    background: linear-gradient(90deg, var(--teal-deep), var(--teal));
+    transform: rotate(-7deg); top: 3.55in; opacity: .92;
+  }
+  .cover .band2 {
+    position: absolute; left: -2in; right: -2in; height: 0.22in;
+    background: var(--gold);
+    transform: rotate(-7deg); top: 5.22in;
+  }
+  .cover .gridmark {
+    position: absolute; left: 0.7in; top: 0.7in;
+    font-size: 10px; letter-spacing: .35em; text-transform: uppercase;
+    color: rgba(255,255,255,.75);
+  }
+  .cover .monogram {
+    position: absolute; left: 0.7in; top: 1.02in;
+    display: flex; align-items: center; gap: .14in;
+  }
+  .cover .monogram .badge {
+    width: .52in; height: .52in; border: 1.5px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--gold);
+  }
+  .cover .monogram .who {
+    font-size: 10.5px; line-height: 1.5; color: rgba(255,255,255,.85);
+    letter-spacing: .04em;
+  }
+  .cover .titleblock { position: absolute; left: 0.7in; top: 5.95in; right: 0.7in; }
+  .cover .titleblock .kicker {
+    font-size: 11px; letter-spacing: .42em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: .22in;
+  }
+  .cover h1 {
+    font-family: "Liberation Serif", Georgia, serif;
+    font-size: 54px; line-height: 1.04; font-weight: 700; letter-spacing: .005em;
+  }
+  .cover h1 .thin { font-weight: 400; font-style: italic; color: #cfd8de; }
+  .cover .subtitle {
+    margin-top: .26in; font-size: 15px; color: #cfd8de; letter-spacing: .02em;
+  }
+  .cover .meta {
+    margin-top: .42in; padding-top: .2in; border-top: 1px solid rgba(255,255,255,.25);
+    display: flex; gap: .55in; font-size: 11px; line-height: 1.65;
+  }
+  .cover .meta b { display: block; font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+  .cover .pillars {
+    position: absolute; left: 0; right: 0; bottom: 0; height: .62in;
+    background: rgba(255,255,255,.06); border-top: 1px solid rgba(255,255,255,.16);
+    display: flex; align-items: center; justify-content: space-evenly;
+    font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.8);
+  }
+  .cover .pillars span.dot { color: var(--gold); letter-spacing: 0; }
+
+  /* ============ INTERIOR SHARED ============ */
+  .page { padding: 0.55in 0.6in 0.75in; height: 100%; display: flex; flex-direction: column; }
+  .pagehead {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 2.5px solid var(--ink); padding-bottom: 7px; margin-bottom: 14px;
+  }
+  .pagehead .doc { font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--slate); }
+  .pagehead .sec { font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+  .pagefoot {
+    position: absolute; left: 0.6in; right: 0.6in; bottom: 0.32in;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--line); padding-top: 6px;
+    font-size: 8px; letter-spacing: .18em; text-transform: uppercase; color: var(--slate);
+  }
+  .pagefoot .pg { color: var(--ink); font-weight: 700; }
+  h2.pagetitle {
+    font-family: "Liberation Serif", Georgia, serif;
+    font-size: 27px; font-weight: 700; line-height: 1.1; margin-bottom: 4px;
+  }
+  .pagetitle .accent { color: var(--teal); }
+  .lede { font-size: 10.5px; line-height: 1.55; color: var(--slate); max-width: 6.6in; margin-bottom: 14px; }
+
+  .label {
+    font-size: 8.5px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--teal); font-weight: 700; margin-bottom: 5px;
+  }
+  .goldlabel { color: #b3841f; }
+
+  /* ============ OVERVIEW PAGE ============ */
+  .ov-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .panel {
+    border: 1px solid var(--line); border-top: 3px solid var(--teal);
+    background: #fff; padding: 11px 13px; border-radius: 2px;
+  }
+  .panel.goldtop { border-top-color: var(--gold); }
+  .panel.inktop { border-top-color: var(--ink); }
+  .panel h3 { font-size: 12px; margin-bottom: 6px; letter-spacing: .02em; }
+  .panel p, .panel li { font-size: 9.6px; line-height: 1.5; color: #36404a; }
+  .panel ul { list-style: none; }
+  .panel li { padding-left: 11px; position: relative; margin-bottom: 3.5px; }
+  .panel li::before { content: ""; position: absolute; left: 0; top: 5px; width: 5px; height: 5px; background: var(--gold); }
+  .blockflow { display: flex; gap: 8px; margin-top: 4px; }
+  .block {
+    flex: 1; background: var(--mist); border-left: 3px solid var(--teal);
+    padding: 8px 9px; font-size: 9.3px; line-height: 1.45; color: #36404a;
+  }
+  .block b { display: block; font-size: 9.5px; color: var(--ink); margin-bottom: 2px; }
+  .block .time { display: block; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 3px; font-weight: 700; }
+  .block.goldblock { border-left-color: var(--gold); background: var(--cream); }
+  .block.goldblock .time { color: #b3841f; }
+  .coresix { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin-top: 4px; }
+  .cs {
+    background: var(--sky); padding: 7px 8px; font-size: 8.8px; line-height: 1.4; color: #36404a;
+    border-radius: 2px;
+  }
+  .cs b { display: block; color: var(--teal-deep); font-size: 9.2px; margin-bottom: 1px; }
+  .arc { display: flex; align-items: stretch; gap: 0; margin-top: 4px; }
+  .arc .step {
+    flex: 1; background: var(--mist); padding: 8px 9px; font-size: 9.2px; line-height: 1.45;
+    position: relative; color: #36404a;
+  }
+  .arc .step + .step { margin-left: 14px; }
+  .arc .step + .step::before {
+    content: "\25B8"; position: absolute; left: -12px; top: 50%; transform: translateY(-50%);
+    color: var(--gold); font-size: 11px;
+  }
+  .arc .step b { display: block; font-size: 9.4px; color: var(--ink); margin-bottom: 2px; }
+
+  /* ============ YEAR AT A GLANCE ============ */
+  .gradehero {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 14px;
+    background: var(--ink); color: #fff; padding: 16px 18px; border-radius: 2px;
+  }
+  .gradehero .gnum {
+    font-family: "Liberation Serif", Georgia, serif;
+    font-size: 42px; font-weight: 700; color: var(--gold); line-height: 1;
+  }
+  .gradehero .gtitle { font-size: 15px; font-weight: 700; letter-spacing: .02em; }
+  .gradehero .gsub { font-size: 9.5px; color: #cfd8de; margin-top: 2px; line-height: 1.5; }
+  .gradehero .gright {
+    margin-left: auto; text-align: right; font-size: 9px; color: #cfd8de; line-height: 1.6;
+  }
+  .gradehero .gright b { color: var(--gold); letter-spacing: .18em; text-transform: uppercase; font-size: 8px; display: block; }
+  .qgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .qcard { border: 1px solid var(--line); border-radius: 2px; overflow: hidden; }
+  .qcard .qhead {
+    display: flex; align-items: baseline; gap: 8px;
+    background: var(--teal); color: #fff; padding: 7px 11px;
+  }
+  .qcard:nth-child(2) .qhead { background: var(--teal-deep); }
+  .qcard:nth-child(3) .qhead { background: #3e5566; }
+  .qcard:nth-child(4) .qhead { background: var(--ink); }
+  .qcard .qhead .q { font-size: 9.5px; letter-spacing: .2em; font-weight: 700; color: var(--gold-soft); }
+  .qcard .qhead .qt { font-size: 12.5px; font-weight: 700; }
+  .qcard .qhead { padding: 9px 12px; }
+  .qcard .qbody { padding: 11px 12px 12px; }
+  .qrow { display: flex; gap: 8px; font-size: 10px; line-height: 1.5; margin-bottom: 7px; color: #36404a; }
+  .qrow .k {
+    flex: 0 0 0.82in; font-size: 8.2px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--teal); font-weight: 700; padding-top: 1px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 3.5px; margin-top: 7px; }
+  .chip {
+    font-size: 8.2px; letter-spacing: .06em; padding: 2.5px 7px; border-radius: 9px;
+    background: var(--sky); color: var(--teal-deep); font-weight: 700;
+  }
+  .chip.gold { background: var(--cream); color: #9a7119; }
+  .ribbon {
+    margin-top: 13px; background: var(--cream); border: 1px solid #eadfc4;
+    padding: 11px 13px; font-size: 10px; line-height: 1.55; color: #4a3f28;
+    border-radius: 2px;
+  }
+  .ribbon b { color: #9a7119; }
+  .assess { display: flex; gap: 12px; margin-top: 14px; }
+  .assess .gpanel {
+    flex: 1.15; border: 1px solid var(--line); border-top: 3px solid var(--ink);
+    padding: 11px 13px; border-radius: 2px;
+  }
+  .assess h4 { font-size: 11.5px; margin-bottom: 7px; }
+  .gradescale { display: flex; gap: 5px; }
+  .gradescale .g {
+    flex: 1; text-align: center; background: var(--mist); padding: 7px 2px 6px; border-radius: 2px;
+  }
+  .gradescale .g b { display: block; font-family: "Liberation Serif", Georgia, serif; font-size: 16px; color: var(--teal-deep); }
+  .gradescale .g span { font-size: 7.6px; color: var(--slate); letter-spacing: .02em; }
+  .assess .streams { flex: 2; border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 11px 13px; border-radius: 2px; }
+  .assess .streams ul { list-style: none; }
+  .assess .streams li { font-size: 9.6px; line-height: 1.5; color: #36404a; padding-left: 11px; position: relative; margin-bottom: 4px; }
+  .assess .streams li::before { content: ""; position: absolute; left: 0; top: 5px; width: 5px; height: 5px; background: var(--gold); }
+
+  /* ============ WEEK MATRIX ============ */
+  table.wk { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  table.wk th, table.wk td { border: 1px solid var(--line); vertical-align: middle; }
+  table.wk th.qcol {
+    background: var(--ink); color: #fff; font-size: 9px; letter-spacing: .04em;
+    padding: 6px 7px; text-align: left;
+  }
+  table.wk th.qcol .qq { color: var(--gold); letter-spacing: .18em; font-size: 7.5px; display: block; margin-bottom: 1px; }
+  table.wk th.wkcol { width: 0.34in; background: var(--mist); }
+  table.wk td.wkn {
+    background: var(--mist); font-size: 9px; font-weight: 700; color: var(--slate);
+    text-align: center; padding: 5px 0; letter-spacing: .04em;
+  }
+  table.wk td.cell { font-size: 9.2px; line-height: 1.48; padding: 7px 8px; color: #36404a; }
+  table.wk td.cell b { color: var(--ink); }
+  table.wk tr.phase td.cell { background: #fdfaf2; }
+  .tablefill { flex: 1; display: flex; flex-direction: column; }
+  .tablefill table.wk { height: 100%; }
+  .legend { display: flex; gap: 14px; margin: 10px 0 6px; font-size: 9px; color: var(--slate); align-items: center; }
+  .legend .sw { width: 10px; height: 10px; border: 1px solid var(--line); display: inline-block; vertical-align: -1px; margin-right: 4px; }
+
+  /* ============ JUST WORDS ============ */
+  .jw-cols { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; flex: 1; }
+  .jwq { display: flex; flex-direction: column; }
+  .jwq::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
+  .jwq { border: 1px solid var(--line); border-radius: 2px; overflow: hidden; }
+  .jwq .jqh {
+    background: var(--teal); color: #fff; padding: 6px 9px;
+    font-size: 9px; font-weight: 700; letter-spacing: .04em;
+  }
+  .jwq:nth-child(2) .jqh { background: var(--teal-deep); }
+  .jwq:nth-child(3) .jqh { background: #3e5566; }
+  .jwq:nth-child(4) .jqh { background: var(--ink); }
+  .jwq .jqh span { display: block; font-size: 7.2px; letter-spacing: .16em; color: var(--gold-soft); margin-bottom: 1px; }
+  .jwu { padding: 8px 10px 9px; border-top: 1px solid var(--line); }
+  .jwu:first-of-type { border-top: 0; }
+  .jwu .un { font-size: 7.8px; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+  .jwu .uc { font-size: 9.5px; line-height: 1.4; color: #36404a; margin-top: 2px; }
+  .jwu.milestone { background: var(--cream); }
+  .jwu.milestone .un { color: #9a7119; }
+  .jw-lesson { display: flex; gap: 8px; margin-top: 4px; }
+  .jw-lesson .st {
+    flex: 1; background: var(--mist); border-top: 2.5px solid var(--gold);
+    padding: 9px 10px; font-size: 9.3px; line-height: 1.45; color: #36404a;
+  }
+  .jw-lesson .st b { display: block; font-size: 9.5px; color: var(--ink); margin-bottom: 2px; }
+  .twocol { display: grid; grid-template-columns: 1.25fr 1fr; gap: 12px; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 · COVER ================= -->
+<section class="sheet cover">
+  <div class="art">
+    <div class="ring" style="width:6.2in;height:6.2in;top:-2.4in;right:-2.2in;"></div>
+    <div class="ring" style="width:7.6in;height:7.6in;top:-3.1in;right:-2.9in;"></div>
+    <div class="sun2"></div>
+    <div class="sun"></div>
+    <div class="band"></div>
+    <div class="band2"></div>
+  </div>
+  <div class="gridmark">Curriculum Document · 2026-2027</div>
+  <div class="monogram">
+    <div class="badge">ELA</div>
+    <div class="who">Hawai&#699;i Academy of Arts &amp; Science<br>Main Campus · Kukui M2</div>
+  </div>
+  <div class="titleblock">
+    <div class="kicker">Scope &amp; Sequence</div>
+    <h1>English<br>Language Arts<br><span class="thin">Grades 7 &amp; 8</span></h1>
+    <div class="subtitle">Core literature units · Writing workshop · Wilson Just Words word study</div>
+    <div class="meta">
+      <div><b>Instructor</b>Mr. Samuel Carlos<br>scarlos@haaspcs.net</div>
+      <div><b>School Year</b>2026-2027<br>Quarters 1-4 · 36 weeks</div>
+      <div><b>Alignment</b>CCSS ELA Grades 7-8<br>Core Six instructional framework</div>
+    </div>
+  </div>
+  <div class="pillars">
+    <span>Core Literature</span><span class="dot">&#9670;</span>
+    <span>Writing Workshop</span><span class="dot">&#9670;</span>
+    <span>Just Words</span><span class="dot">&#9670;</span>
+    <span>Morning Edit</span>
+  </div>
+</section>
+
+<!-- ================= PAGE 2 · PROGRAM OVERVIEW ================= -->
+<section class="sheet">
+  <div class="page">
+    <div class="pagehead">
+      <span class="doc">ELA 7-8 · Scope &amp; Sequence · 2026-2027</span>
+      <span class="sec">Program Overview</span>
+    </div>
+    <h2 class="pagetitle">How the Program <span class="accent">Works</span></h2>
+    <p class="lede">Every class period carries two instructional engines. The first half of each period drives the core literature and writing unit: guided reading, evidence-based writing, and discussion built on the Core Six strategies. The second half delivers Wilson Just Words, an explicit Tier 2 decoding and spelling curriculum that closes foundational gaps while the literary units push grade-level analysis. A daily Morning Edit warm-up opens each session with hands-on conventions practice.</p>
+
+    <div class="label">Anatomy of a Class Period</div>
+    <div class="blockflow" style="margin-bottom:13px;">
+      <div class="block">
+        <span class="time">Opening · ~10 min</span>
+        <b>Morning Edit</b>
+        Students correct a 10-error paragraph drawn from the current unit's world. Daily, cumulative conventions practice.
+      </div>
+      <div class="block">
+        <span class="time">First Half · Core Unit</span>
+        <b>Literature &amp; Writing Block</b>
+        Guided reading, the weekly assignment, and one-on-one feedback conferences, following the three-session cycle below.
+      </div>
+      <div class="block goldblock">
+        <span class="time">Second Half · Tier 2</span>
+        <b>Wilson Just Words</b>
+        Multisensory word study: sound drills, syllable concepts, word and sentence reading, and dictation. Sequence on page 7.
+      </div>
+    </div>
+
+    <div class="ov-grid" style="margin-bottom:13px;">
+      <div class="panel">
+        <h3>The Weekly Three-Session Cycle</h3>
+        <ul>
+          <li><b>Session 1 (80 min):</b> Guided reading of the week's text, assignment launched, first feedback conferences begin.</li>
+          <li><b>Session 2 (80 min):</b> Assignment re-taught, independent work, conferences continue. Most students finish and revise.</li>
+          <li><b>Session 3 (Fri · 40 min):</b> Catch-up and revision. Finished students move to independent reading journals or extra credit writing.</li>
+          <li><b>Grading:</b> Initial grades by conference before the weekend; final grades entered the following Session 1.</li>
+        </ul>
+      </div>
+      <div class="panel goldtop">
+        <h3>Assignment Design Commitments</h3>
+        <ul>
+          <li>Weekly readings are completable in about 25 minutes: roughly 1,000 words in Grade 7 and 1,500 words in Grade 8.</li>
+          <li>Every challenging text ships with a simplified version, a vocabulary scaffold, or an audio recording.</li>
+          <li>Modified and ELL Development versions are part of the standard set, never afterthoughts.</li>
+          <li>Formats repeat across the year, so cognitive load stays on the content, not the directions.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="label">The Core Six Instructional Strategies</div>
+    <div class="coresix" style="margin-bottom:13px;">
+      <div class="cs"><b>Reading for Meaning</b>Pre-reading statements; students hunt for supporting or refuting evidence.</div>
+      <div class="cs"><b>Compare &amp; Contrast</b>Top Hat organizers that end in evaluation, not just description.</div>
+      <div class="cs"><b>Inductive Learning</b>Students sort and categorize unit vocabulary before and during reading.</div>
+      <div class="cs"><b>Circle of Knowledge</b>Structured discussion using the Q-SPACE questioning framework.</div>
+      <div class="cs"><b>Write to Learn</b>Three tiers of writing: provisional, readable, and polished.</div>
+      <div class="cs"><b>Vocabulary CODE</b>Connect, Organize, Deep-process, Exercise.</div>
+    </div>
+
+    <div class="label">Rhythm of Every Quarter</div>
+    <div class="arc">
+      <div class="step"><b>Launch</b>Inductive Learning vocabulary sort opens the unit and surfaces prior knowledge.</div>
+      <div class="step"><b>Build</b>Weekly reading and writing assignments with same-week feedback conferences.</div>
+      <div class="step"><b>Discuss</b>Circle of Knowledge seminar at the heart of the unit.</div>
+      <div class="step"><b>Produce</b>A polished quarter product through a full draft, feedback, and revision cycle.</div>
+    </div>
+
+    <div class="ribbon" style="margin-top:13px;">
+      <b>Writing arc by grade.</b> Grade 7 solidifies sentence-level craft and builds to evidence-based paragraphs across the year. Grade 8 moves from sentences up through full multi-paragraph essays and stories. Rubrics are element-by-element: each required sentence or paragraph has its own criteria row.
+    </div>
+
+    <div class="pagefoot">
+      <span>Hawai&#699;i Academy of Arts &amp; Science · Mr. Carlos</span>
+      <span class="pg">02 · Program Overview</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 3 · GRADE 7 YEAR ================= -->
+<section class="sheet">
+  <div class="page">
+    <div class="pagehead">
+      <span class="doc">ELA 7-8 · Scope &amp; Sequence · 2026-2027</span>
+      <span class="sec">Grade 7 · Year at a Glance</span>
+    </div>
+    <div class="gradehero">
+      <div class="gnum">7</div>
+      <div>
+        <div class="gtitle">Seventh Grade English Language Arts</div>
+        <div class="gsub">Memoir, poetry, nonfiction science writing, and original fiction. Writing focus: strong sentences building to evidence-based paragraphs.</div>
+      </div>
+      <div class="gright">
+        <b>Schedule</b>Mon · Wed · Fri<br>
+        <b>Reading Target</b>~1,000 words / week
+      </div>
+    </div>
+
+    <div class="qgrid">
+      <div class="qcard">
+        <div class="qhead"><span class="q">Q1</span><span class="qt">Red Scarf Girl &amp; Personal Narrative</span></div>
+        <div class="qbody">
+          <div class="qrow"><span class="k">Anchor Text</span><span><i>Red Scarf Girl</i>, Ji-li Jiang's memoir of China's Cultural Revolution.</span></div>
+          <div class="qrow"><span class="k">Product</span><span>Personal narrative essay told from a turning-point moment, with a full revision cycle.</span></div>
+          <div class="qrow"><span class="k">Word Study</span><span>Context clues; dictionary skills; inductive vocabulary sorts.</span></div>
+          <div class="chips"><span class="chip">RL.1-3</span><span class="chip">RL.6</span><span class="chip">W.3</span><span class="chip">W.5</span><span class="chip">SL.1</span><span class="chip gold">Reading for Meaning</span><span class="chip gold">Top Hat</span></div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="q">Q2</span><span class="qt">Robert Frost &amp; Writing Poetry</span></div>
+        <div class="qbody">
+          <div class="qrow"><span class="k">Anchor Text</span><span>Poems by Robert Frost, Edgar Allan Poe, and a diverse contemporary anthology.</span></div>
+          <div class="qrow"><span class="k">Product</span><span>Original poem collection (6-8 poems) with an artist's statement, shared at a class reading.</span></div>
+          <div class="qrow"><span class="k">Word Study</span><span>Figurative language; connotation and denotation; sound devices.</span></div>
+          <div class="chips"><span class="chip">RL.4</span><span class="chip">RL.5</span><span class="chip">W.3-4</span><span class="chip">L.5</span><span class="chip">SL.4</span><span class="chip gold">Inductive Learning</span><span class="chip gold">Vocabulary CODE</span></div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="q">Q3</span><span class="qt">Brain Science &amp; Writing to Learn</span></div>
+        <div class="qbody">
+          <div class="qrow"><span class="k">Anchor Text</span><span>The Phineas Gage case, Oliver Sacks case-study excerpts, and brain science articles.</span></div>
+          <div class="qrow"><span class="k">Product</span><span>Informational and explanatory writing that uses writing as a tool for thinking through nonfiction.</span></div>
+          <div class="qrow"><span class="k">Word Study</span><span>Greek and Latin roots in scientific vocabulary.</span></div>
+          <div class="chips"><span class="chip">RI.1-4</span><span class="chip">W.2</span><span class="chip">W.9</span><span class="chip">L.4</span><span class="chip">SL.1</span><span class="chip gold">Write to Learn</span><span class="chip gold">Circle of Knowledge</span></div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="q">Q4</span><span class="qt">Story Writing Workshop</span></div>
+        <div class="qbody">
+          <div class="qrow"><span class="k">Anchor Text</span><span>Short fiction mentor texts studied in class as models of storytelling craft.</span></div>
+          <div class="qrow"><span class="k">Product</span><span>An original short story, planned, drafted, revised twice, and published in a class anthology.</span></div>
+          <div class="qrow"><span class="k">Word Study</span><span>Grammar workshops run on student drafts: usage, conventions, style.</span></div>
+          <div class="chips"><span class="chip">W.3-5</span><span class="chip">L.1-3</span><span class="chip">RL.3</span><span class="chip">SL.6</span><span class="chip gold">Write to Learn</span><span class="chip gold">Compare &amp; Contrast</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assess">
+      <div class="gpanel">
+        <h4>Grading Scale</h4>
+        <div class="gradescale">
+          <div class="g"><b>A</b><span>88.5%+</span></div>
+          <div class="g"><b>B</b><span>78.5-88.4</span></div>
+          <div class="g"><b>C</b><span>68.5-78.4</span></div>
+          <div class="g"><b>D</b><span>58.5-68.4</span></div>
+          <div class="g"><b>F</b><span>0-58.4</span></div>
+        </div>
+      </div>
+      <div class="streams">
+        <h4 style="font-size:11.5px;margin-bottom:7px;">How Work Is Assessed</h4>
+        <ul>
+          <li>One weekly paper assignment, graded through one-on-one conferences with a revision window before grades finalize.</li>
+          <li>One polished quarter product, scored with element-by-element rubrics tied to each required sentence and paragraph.</li>
+          <li>Just Words unit tests, plus a midterm and final cumulative assessment (page 7).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ribbon">
+      <b>Running all year:</b> daily Morning Edit conventions practice, weekly homework in familiar Template A and Template B formats, independent reading journals, and the Wilson Just Words word study block in the second half of every period (sequence on page 7).
+    </div>
+
+    <div class="pagefoot">
+      <span>Hawai&#699;i Academy of Arts &amp; Science · Mr. Carlos</span>
+      <span class="pg">03 · Grade 7</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 4 · GRADE 7 WEEKS ================= -->
+<section class="sheet">
+  <div class="page">
+    <div class="pagehead">
+      <span class="doc">ELA 7-8 · Scope &amp; Sequence · 2026-2027</span>
+      <span class="sec">Grade 7 · Week by Week</span>
+    </div>
+    <h2 class="pagetitle">Grade 7 <span class="accent">Week by Week</span></h2>
+    <p class="lede">Each quarter runs nine weeks: roughly six weeks anchored in the text, then a three-week production window for the quarter product. Cream-shaded rows mark the production window.</p>
+    <div class="tablefill"><table class="wk">
+      <tr>
+        <th class="wkcol"></th>
+        <th class="qcol"><span class="qq">QUARTER 1</span>Red Scarf Girl</th>
+        <th class="qcol"><span class="qq">QUARTER 2</span>Frost &amp; Poetry</th>
+        <th class="qcol"><span class="qq">QUARTER 3</span>Brain Science</th>
+        <th class="qcol"><span class="qq">QUARTER 4</span>Story Workshop</th>
+      </tr>
+      <tr>
+        <td class="wkn">W1</td>
+        <td class="cell">Unit launch; memoir genre; pre-reading statements (Reading for Meaning)</td>
+        <td class="cell">What is poetry? Sound devices; close reading of short poems</td>
+        <td class="cell">Launch; the Phineas Gage case; nonfiction reading strategies</td>
+        <td class="cell">Story architecture: arc, scene, conflict; mentor text mini-lessons</td>
+      </tr>
+      <tr>
+        <td class="wkn">W2</td>
+        <td class="cell">Cultural Revolution context; inductive vocab sort; ch. 1-3</td>
+        <td class="cell">Frost: imagery, rhythm, and the turn ("The Road Not Taken" and others)</td>
+        <td class="cell">Gage chapters; brain anatomy vocabulary (Greek &amp; Latin roots)</td>
+        <td class="cell">Character building; voice and point-of-view experiments</td>
+      </tr>
+      <tr>
+        <td class="wkn">W3</td>
+        <td class="cell">Ch. 4-6; character analysis of Ji-li's choices; learning logs</td>
+        <td class="cell">Poe: "The Raven"; rhyme, meter, and mood; figurative language sort</td>
+        <td class="cell">Oliver Sacks case studies; how writers explain science to lay readers</td>
+        <td class="cell">Setting and worldbuilding; opening scene drafted</td>
+      </tr>
+      <tr>
+        <td class="wkn">W4</td>
+        <td class="cell">Ch. 7-9; theme development; 4-2-1 reflections</td>
+        <td class="cell">Diverse poetic voices; form vs. free verse; structure analysis</td>
+        <td class="cell">Text structure in science writing; comparing two explanations (Top Hat)</td>
+        <td class="cell">Rising action and middle scenes; dialogue craft</td>
+      </tr>
+      <tr>
+        <td class="wkn">W5</td>
+        <td class="cell">Ch. 10-12; Top Hat compare: Ji-li at the start vs. the end</td>
+        <td class="cell">Mentor poem imitation; first original drafts</td>
+        <td class="cell">Learning logs to explanatory paragraphs; choose a brain topic</td>
+        <td class="cell">Climax and resolution drafted; <b>first full draft due</b></td>
+      </tr>
+      <tr>
+        <td class="wkn">W6</td>
+        <td class="cell">Finish memoir; Circle of Knowledge; objective summary</td>
+        <td class="cell">Drafting 2-3 more poems; figurative language workshop</td>
+        <td class="cell">Research week; gather and cite evidence; Circle of Knowledge</td>
+        <td class="cell">Revision cycle 1 (structural); peer conferences</td>
+      </tr>
+      <tr class="phase">
+        <td class="wkn">W7</td>
+        <td class="cell">Personal narrative: drafting from a turning-point moment</td>
+        <td class="cell">Drafting and revision; peer feedback</td>
+        <td class="cell">Draft the explanatory piece; conferences begin</td>
+        <td class="cell">Revision cycle 2: sentences, dialogue, pacing</td>
+      </tr>
+      <tr class="phase">
+        <td class="wkn">W8</td>
+        <td class="cell">Peer revision (W.5); sensory and precise language</td>
+        <td class="cell">Artist's statement; compile and design the collection</td>
+        <td class="cell">Revise for precise language, transitions, and structure</td>
+        <td class="cell">Line editing; grammar workshops on student drafts</td>
+      </tr>
+      <tr class="phase">
+        <td class="wkn">W9</td>
+        <td class="cell">Polish, publish, and share</td>
+        <td class="cell">Poetry reading; final portfolio</td>
+        <td class="cell">Publish and present; reflect on writing to learn</td>
+        <td class="cell">Polish, publish, anthology, and reading celebration</td>
+      </tr>
+    </table></div>
+    <div class="legend">
+      <span><span class="sw" style="background:#fdfaf2;"></span>Quarter product production window</span>
+      <span><span class="sw" style="background:#fff;"></span>Text-anchored reading and response weeks</span>
+    </div>
+
+    <div class="pagefoot">
+      <span>Hawai&#699;i Academy of Arts &amp; Science · Mr. Carlos</span>
+      <span class="pg">04 · Grade 7</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 5 · GRADE 8 YEAR ================= -->
+<section class="sheet">
+  <div class="page">
+    <div class="pagehead">
+      <span class="doc">ELA 7-8 · Scope &amp; Sequence · 2026-2027</span>
+      <span class="sec">Grade 8 · Year at a Glance</span>
+    </div>
+    <div class="gradehero">
+      <div class="gnum">8</div>
+      <div>
+        <div class="gtitle">Eighth Grade English Language Arts</div>
+        <div class="gsub">WWII memoir, the first science fiction novel, Shakespeare in performance, and original fiction. Writing focus: sentences up through full essays and stories.</div>
+      </div>
+      <div class="gright">
+        <b>Schedule</b>Tue · Thu · Fri<br>
+        <b>Reading Target</b>~1,500 words / week
+      </div>
+    </div>
+
+    <div class="qgrid">
+      <div class="qcard">
+        <div class="qhead"><span class="q">Q1</span><span class="qt">Going Solo &amp; Personal Narrative</span></div>
+        <div class="qbody">
+          <div class="qrow"><span class="k">Anchor Text</span><span><i>Going Solo</i>, Roald Dahl's RAF memoir, centered on the Battle of Athens.</span></div>
+          <div class="qrow"><span class="k">Product</span><span>Personal narrative essay told from a meaningful true story, with a full revision cycle.</span></div>
+          <div class="qrow"><span class="k">Word Study</span><span>Dictionary skills; precise verbs and concrete detail in Dahl's prose.</span></div>
+          <div class="chips"><span class="chip">RI.1-3</span><span class="chip">RI.6</span><span class="chip">W.3</span><span class="chip">W.5</span><span class="chip">SL.1</span><span class="chip gold">Reading for Meaning</span><span class="chip gold">Top Hat</span></div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="q">Q2</span><span class="qt">Frankenstein &amp; Science Fiction</span></div>
+        <div class="qbody">
+          <div class="qrow"><span class="k">Anchor Text</span><span>Mary Shelley's <i>Frankenstein</i>, the novel that launched the science fiction genre.</span></div>
+          <div class="qrow"><span class="k">Product</span><span>An original science fiction story built on a real scientific idea taken one step too far.</span></div>
+          <div class="qrow"><span class="k">Word Study</span><span>Greek and Latin roots; gothic and scientific vocabulary.</span></div>
+          <div class="chips"><span class="chip">RL.1-4</span><span class="chip">RL.6</span><span class="chip">W.3-5</span><span class="chip">L.4</span><span class="chip gold">Inductive Learning</span><span class="chip gold">Circle of Knowledge</span></div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="q">Q3</span><span class="qt">Theater &amp; Romeo and Juliet</span></div>
+        <div class="qbody">
+          <div class="qrow"><span class="k">Anchor Text</span><span>Shakespeare's <i>Romeo and Juliet</i>, studied as a play meant to be performed.</span></div>
+          <div class="qrow"><span class="k">Product</span><span>Staged scene performances with director's notes, plus a drama response essay.</span></div>
+          <div class="qrow"><span class="k">Word Study</span><span>Figurative language; wordplay, puns, and Elizabethan English.</span></div>
+          <div class="chips"><span class="chip">RL.4-5</span><span class="chip">RL.7</span><span class="chip">W.1</span><span class="chip">SL.4-6</span><span class="chip">L.5</span><span class="chip gold">Circle of Knowledge</span><span class="chip gold">Compare &amp; Contrast</span></div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="q">Q4</span><span class="qt">Story Writing Workshop</span></div>
+        <div class="qbody">
+          <div class="qrow"><span class="k">Anchor Text</span><span>Short fiction mentor texts studied in class as models of storytelling craft.</span></div>
+          <div class="qrow"><span class="k">Product</span><span>An original multi-scene short story carried through planning, drafting, two revision cycles, and publication.</span></div>
+          <div class="qrow"><span class="k">Word Study</span><span>Grammar workshops run on student drafts: usage, conventions, style.</span></div>
+          <div class="chips"><span class="chip">W.3-5</span><span class="chip">L.1-3</span><span class="chip">RL.3</span><span class="chip">SL.6</span><span class="chip gold">Write to Learn</span><span class="chip gold">Compare &amp; Contrast</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assess">
+      <div class="gpanel">
+        <h4>Grading Scale</h4>
+        <div class="gradescale">
+          <div class="g"><b>A</b><span>88.5%+</span></div>
+          <div class="g"><b>B</b><span>78.5-88.4</span></div>
+          <div class="g"><b>C</b><span>68.5-78.4</span></div>
+          <div class="g"><b>D</b><span>58.5-68.4</span></div>
+          <div class="g"><b>F</b><span>0-58.4</span></div>
+        </div>
+      </div>
+      <div class="streams">
+        <h4 style="font-size:11.5px;margin-bottom:7px;">How Work Is Assessed</h4>
+        <ul>
+          <li>One weekly paper assignment, graded through one-on-one conferences with a revision window before grades finalize.</li>
+          <li>One polished quarter product, scored with element-by-element rubrics tied to each required sentence and paragraph.</li>
+          <li>Just Words unit tests, plus a midterm and final cumulative assessment (page 7).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ribbon">
+      <b>Running all year:</b> daily Morning Edit conventions practice, weekly homework in familiar Template A and Template B formats, independent reading journals, and the Wilson Just Words word study block in the second half of every period (sequence on page 7).
+    </div>
+
+    <div class="pagefoot">
+      <span>Hawai&#699;i Academy of Arts &amp; Science · Mr. Carlos</span>
+      <span class="pg">05 · Grade 8</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 6 · GRADE 8 WEEKS ================= -->
+<section class="sheet">
+  <div class="page">
+    <div class="pagehead">
+      <span class="doc">ELA 7-8 · Scope &amp; Sequence · 2026-2027</span>
+      <span class="sec">Grade 8 · Week by Week</span>
+    </div>
+    <h2 class="pagetitle">Grade 8 <span class="accent">Week by Week</span></h2>
+    <p class="lede">Each quarter runs nine weeks: roughly six weeks anchored in the text, then a three-week production window for the quarter product. Cream-shaded rows mark the production window. Long texts are chunked and excerpted to keep weekly readings near the 25-minute target.</p>
+    <div class="tablefill"><table class="wk">
+      <tr>
+        <th class="wkcol"></th>
+        <th class="qcol"><span class="qq">QUARTER 1</span>Going Solo</th>
+        <th class="qcol"><span class="qq">QUARTER 2</span>Frankenstein</th>
+        <th class="qcol"><span class="qq">QUARTER 3</span>Romeo &amp; Juliet</th>
+        <th class="qcol"><span class="qq">QUARTER 4</span>Story Workshop</th>
+      </tr>
+      <tr>
+        <td class="wkn">W1</td>
+        <td class="cell">Launch; memoir vs. fiction; WWII context; pre-reading statements</td>
+        <td class="cell">Launch; gothic origins of science fiction; the frame narrative</td>
+        <td class="cell">Launch; Shakespeare's stage; how to read drama aloud</td>
+        <td class="cell">Story architecture: arc, scene, conflict; mentor text mini-lessons</td>
+      </tr>
+      <tr>
+        <td class="wkn">W2</td>
+        <td class="cell">East Africa chapters; Dahl's voice; inductive vocab sort</td>
+        <td class="cell">The letters and ch. 1-4; ambition vocabulary (Greek &amp; Latin roots)</td>
+        <td class="cell">Prologue and Act I; sonnet form; figurative language sort</td>
+        <td class="cell">Character building; voice and point-of-view experiments</td>
+      </tr>
+      <tr>
+        <td class="wkn">W3</td>
+        <td class="cell">East Africa chapters; how Dahl characterizes real people</td>
+        <td class="cell">Creation and abandonment; the ethics of Victor's science</td>
+        <td class="cell">Act II; staging choices; comparing two performances of one scene</td>
+        <td class="cell">Setting and worldbuilding; opening scene drafted</td>
+      </tr>
+      <tr>
+        <td class="wkn">W4</td>
+        <td class="cell">RAF flight training; Top Hat compare: Dahl the clerk vs. Dahl the pilot</td>
+        <td class="cell">The creature's tale; point-of-view shift; who is the monster?</td>
+        <td class="cell">Act III; the turning point; escalation of conflict</td>
+        <td class="cell">Rising action and middle scenes; dialogue craft</td>
+      </tr>
+      <tr>
+        <td class="wkn">W5</td>
+        <td class="cell">The Battle of Athens; tension, pacing, and understatement</td>
+        <td class="cell">Finish the novel; Circle of Knowledge; theme and responsibility</td>
+        <td class="cell">Act IV; dramatic irony; the audience knows more than the characters</td>
+        <td class="cell">Climax and resolution drafted; <b>first full draft due</b></td>
+      </tr>
+      <tr>
+        <td class="wkn">W6</td>
+        <td class="cell">Finish memoir; Circle of Knowledge; objective summary</td>
+        <td class="cell">Science fiction conventions; mentor stories; pitch an original premise</td>
+        <td class="cell">Act V; Circle of Knowledge: who bears the blame?</td>
+        <td class="cell">Revision cycle 1 (structural); peer conferences</td>
+      </tr>
+      <tr class="phase">
+        <td class="wkn">W7</td>
+        <td class="cell">Personal narrative essay: drafting from a meaningful true story</td>
+        <td class="cell">Draft the science fiction story; conferences begin</td>
+        <td class="cell">Scene performance prep; blocking and director's notes</td>
+        <td class="cell">Revision cycle 2: sentences, dialogue, pacing</td>
+      </tr>
+      <tr class="phase">
+        <td class="wkn">W8</td>
+        <td class="cell">Peer revision (W.5); sensory and precise language</td>
+        <td class="cell">Revision and peer conferences; sharpen the scientific premise</td>
+        <td class="cell">Performances; draft the drama response essay</td>
+        <td class="cell">Line editing; grammar workshops on student drafts</td>
+      </tr>
+      <tr class="phase">
+        <td class="wkn">W9</td>
+        <td class="cell">Polish, publish, and share</td>
+        <td class="cell">Polish and share at a science fiction story session</td>
+        <td class="cell">Revise and publish the response essay</td>
+        <td class="cell">Polish, publish, anthology, and reading celebration</td>
+      </tr>
+    </table></div>
+    <div class="legend">
+      <span><span class="sw" style="background:#fdfaf2;"></span>Quarter product production window</span>
+      <span><span class="sw" style="background:#fff;"></span>Text-anchored reading and response weeks</span>
+    </div>
+
+    <div class="pagefoot">
+      <span>Hawai&#699;i Academy of Arts &amp; Science · Mr. Carlos</span>
+      <span class="pg">06 · Grade 8</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 7 · JUST WORDS ================= -->
+<section class="sheet">
+  <div class="page">
+    <div class="pagehead">
+      <span class="doc">ELA 7-8 · Scope &amp; Sequence · 2026-2027</span>
+      <span class="sec">Wilson Just Words · Both Grades</span>
+    </div>
+    <h2 class="pagetitle">Wilson <span class="accent">Just Words</span> Word Study</h2>
+    <p class="lede">Just Words is Wilson Language Training's accelerated, multisensory Tier 2 decoding and spelling curriculum for grades 4-12. It runs in the second half of every class period, in both grades, all year. The 14-unit sequence below paces the program across four quarters at roughly two weeks per unit, with flex weeks absorbing reteaching as assessment data demands.</p>
+
+    <div class="label">Inside Every Just Words Session</div>
+    <div class="jw-lesson" style="margin-bottom:13px;">
+      <div class="st"><b>1 · Sound Drill</b>Rapid multisensory review of sound-symbol correspondence.</div>
+      <div class="st"><b>2 · Concept Teaching</b>Explicit instruction in the unit's syllable, spelling, or suffix concept.</div>
+      <div class="st"><b>3 · Word &amp; Sentence Reading</b>Controlled words, phrases, and high frequency words applied in connected text.</div>
+      <div class="st"><b>4 · Dictation</b>Students encode sounds, words, and full sentences; spelling made automatic.</div>
+    </div>
+
+    <div class="label">Unit Sequence by Quarter</div>
+    <div class="jw-cols" style="margin-bottom:13px;">
+      <div class="jwq">
+        <div class="jqh"><span>QUARTER 1 · W1-9</span>Closed Syllables</div>
+        <div class="jwu milestone"><div class="un">Week 1</div><div class="uc">Placement &amp; baseline spelling inventory</div></div>
+        <div class="jwu"><div class="un">Unit 1</div><div class="uc">Digraphs</div></div>
+        <div class="jwu"><div class="un">Unit 2</div><div class="uc">Blends in closed syllables</div></div>
+        <div class="jwu"><div class="un">Unit 3</div><div class="uc">Bonus letter rule; welded sounds</div></div>
+        <div class="jwu"><div class="un">Unit 4</div><div class="uc">Suffixes -s, -es, -ed, -ing</div></div>
+      </div>
+      <div class="jwq">
+        <div class="jqh"><span>QUARTER 2 · W10-18</span>Multisyllabic &amp; V-E</div>
+        <div class="jwu"><div class="un">Unit 5</div><div class="uc">Closed multisyllabic words</div></div>
+        <div class="jwu"><div class="un">Unit 6</div><div class="uc">Comparative &amp; superlative suffixes</div></div>
+        <div class="jwu"><div class="un">Unit 7</div><div class="uc">Vowel-consonant-e syllables</div></div>
+        <div class="jwu"><div class="un">Bonus Unit</div><div class="uc">Cumulative concept consolidation</div></div>
+        <div class="jwu milestone"><div class="un">Milestone</div><div class="uc">Midterm review &amp; assessment (Units 1-7)</div></div>
+      </div>
+      <div class="jwq">
+        <div class="jqh"><span>QUARTER 3 · W19-27</span>Open, R-Controlled</div>
+        <div class="jwu"><div class="un">Unit 8</div><div class="uc">Open syllables</div></div>
+        <div class="jwu"><div class="un">Unit 9</div><div class="uc">R-controlled syllables</div></div>
+        <div class="jwu"><div class="un">Unit 10</div><div class="uc">Adding suffixes to multisyllabic words</div></div>
+        <div class="jwu"><div class="un">Unit 11</div><div class="uc">Long a &amp; e vowel teams</div></div>
+      </div>
+      <div class="jwq">
+        <div class="jqh"><span>QUARTER 4 · W28-36</span>Vowel Teams &amp; Schwa</div>
+        <div class="jwu"><div class="un">Unit 12</div><div class="uc">Long o &amp; u vowel teams</div></div>
+        <div class="jwu"><div class="un">Unit 13</div><div class="uc">Final stable syllable: consonant-le</div></div>
+        <div class="jwu"><div class="un">Unit 14</div><div class="uc">Schwa &amp; full syllable review</div></div>
+        <div class="jwu milestone"><div class="un">Milestone</div><div class="uc">Final review &amp; cumulative assessment (Units 1-14)</div></div>
+      </div>
+    </div>
+
+    <div class="twocol">
+      <div class="panel goldtop">
+        <h3>Standards Coverage</h3>
+        <p style="margin-bottom:5px;">Just Words carries the foundational reading band so the literature units can stay focused on grade-level analysis.</p>
+        <ul>
+          <li><b>Core:</b> RF.2 phonemic awareness; RF.3 phonics, syllable types, and affixes; RF.4 fluency.</li>
+          <li><b>Core, grades 7-8:</b> L.2 spelling; L.4 Greek and Latin affixes and roots.</li>
+          <li><b>Partial:</b> L.1 through sentence dictation; L.6 high frequency words.</li>
+        </ul>
+      </div>
+      <div class="panel inktop">
+        <h3>Pacing Notes</h3>
+        <ul>
+          <li>Wilson's full-time model is 14 units over 30 weeks; this plan fits a 36-week year with built-in flex weeks.</li>
+          <li>Unit boundaries move with mastery data from unit tests, not with the calendar.</li>
+          <li>Morning Edit and unit vocabulary recycle Just Words patterns, so word study is reinforced outside the block.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ribbon">
+      <b>Why word study in grades 7-8.</b> Following the Simple View of Reading, comprehension is the product of word recognition and language comprehension. Just Words carries the word recognition strand for students with decoding and spelling gaps, while the core literature units carry vocabulary, knowledge, and analysis. Together they serve the whole reader, consistent with the Science of Reading principles that ground this curriculum.
+    </div>
+
+    <div class="pagefoot">
+      <span>Hawai&#699;i Academy of Arts &amp; Science · Mr. Carlos</span>
+      <span class="pg">07 · Just Words</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCSS ELA Coverage Map · Interactive · Grades 5-8</title>
+<style>
+  :root{
+    --ink:#1f2933; --slate:#52606d; --teal:#2c6e8f; --teal-deep:#1d5673;
+    --gold:#d9a531; --gold-soft:#e8c878; --mist:#f4f6f8; --sky:#eaf2f6;
+    --cream:#fff8ec; --line:#d7dce1;
+    --both:#2c6e8f; --g56:#d9a531; --g78:#5b7c8d; --na:#e7eaed;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Liberation Sans","Segoe UI",Helvetica,Arial,sans-serif;color:var(--ink);
+    background:#e7eaed;padding:24px 16px;}
+  .sheet{max-width:11in;background:#fff;margin:0 auto;
+    box-shadow:0 2px 14px rgba(0,0,0,.18);border-radius:3px;}
+  .page{padding:30px 36px 28px;}
+  .pagehead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;
+    border-bottom:2.5px solid var(--ink);padding-bottom:7px;margin-bottom:12px;}
+  .pagehead .doc{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--slate);}
+  .pagehead .sec{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);font-weight:700;}
+  h1{font-family:"Liberation Serif",Georgia,serif;font-size:27px;line-height:1.08;margin-bottom:4px;}
+  h1 .accent{color:var(--teal);}
+  .lede{font-size:10.5px;line-height:1.5;color:var(--slate);max-width:9.4in;margin-bottom:6px;}
+  .lede b{color:var(--ink);}
+  .clickhint{font-size:10px;font-weight:700;color:var(--teal-deep);background:var(--sky);
+    display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:14px;margin-bottom:13px;}
+  .clickhint::before{content:"\1F446";font-size:12px;}
+
+  .layout{display:grid;grid-template-columns:1fr .82fr;gap:18px;align-items:start;}
+  @media(max-width:880px){.layout{grid-template-columns:1fr;}}
+
+  /* ===== MATRIX ===== */
+  table.mx{border-collapse:separate;border-spacing:3px;width:100%;}
+  table.mx th.corner{width:1.45in;text-align:left;font-size:9px;color:var(--slate);
+    letter-spacing:.06em;vertical-align:bottom;padding:0 6px 4px 2px;}
+  table.mx th.num{font-size:9px;color:var(--slate);font-weight:700;text-align:center;padding-bottom:3px;}
+  table.mx td.row-label{font-size:10px;font-weight:700;color:#fff;background:var(--ink);
+    padding:7px 9px;white-space:nowrap;border-radius:2px;}
+  table.mx td.row-label span{display:block;font-size:7.6px;font-weight:400;letter-spacing:.04em;
+    color:#cfd8de;margin-top:1px;text-transform:none;}
+  .cell{height:42px;border-radius:2px;text-align:center;vertical-align:middle;
+    font-size:10px;font-weight:700;color:#fff;letter-spacing:.01em;position:relative;
+    transition:transform .08s ease, box-shadow .08s ease;}
+  .cell.clickable{cursor:pointer;}
+  .cell.clickable:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.22);z-index:2;}
+  .cell.clickable:active{transform:translateY(0);}
+  .cell.both{background:var(--both);}
+  .cell.g56{background:var(--g56);color:#4a3a12;}
+  .cell.g78{background:var(--g78);}
+  .cell.na{background:var(--na);color:#aab2b9;font-weight:400;cursor:help;}
+  .cell.gap{box-shadow:inset 0 0 0 2.5px var(--ink);}
+  .cell.gap.clickable:hover{box-shadow:inset 0 0 0 2.5px var(--ink), 0 4px 10px rgba(0,0,0,.22);}
+  .cell.empty{background:transparent;}
+  .cell.sel{outline:3px solid var(--ink);outline-offset:1px;z-index:3;}
+
+  /* ===== LEGEND ===== */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 16px;margin-top:11px;font-size:9.5px;color:var(--slate);}
+  .legend .k{display:flex;align-items:center;gap:6px;}
+  .legend .sw{width:15px;height:15px;border-radius:2px;display:inline-block;}
+  .legend .sw.both{background:var(--both);}
+  .legend .sw.g56{background:var(--g56);}
+  .legend .sw.g78{background:var(--g78);}
+  .legend .sw.na{background:var(--na);}
+  .legend .sw.gap{background:#fff;box-shadow:inset 0 0 0 2.5px var(--ink);}
+
+  /* ===== SIDE PANELS ===== */
+  .panel{border:1px solid var(--line);border-top:3px solid var(--teal);padding:11px 13px;border-radius:2px;margin-bottom:11px;}
+  .panel.goldtop{border-top-color:var(--gold);}
+  .panel.inktop{border-top-color:var(--ink);}
+  .panel h3{font-size:12px;margin-bottom:3px;}
+  .panel .sub{font-size:9px;color:var(--slate);margin-bottom:7px;line-height:1.4;}
+  .panel ul{list-style:none;}
+  .panel li{font-size:9.6px;line-height:1.42;color:#36404a;padding-left:13px;position:relative;margin-bottom:5px;}
+  .panel li::before{content:"";position:absolute;left:0;top:5px;width:6px;height:6px;background:var(--gold);}
+  .panel.inktop li::before{background:var(--teal);}
+  .panel li b{color:var(--ink);}
+  .note{font-size:8.6px;color:var(--slate);line-height:1.45;margin-top:9px;border-top:1px solid var(--line);padding-top:7px;}
+  .pagefoot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;
+    border-top:1px solid var(--line);padding-top:6px;margin-top:13px;
+    font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);}
+  .pagefoot b{color:var(--ink);}
+
+  /* ===== POPOVER ===== */
+  #pop{position:fixed;z-index:50;width:330px;max-width:calc(100vw - 24px);
+    background:#fff;border-radius:6px;box-shadow:0 10px 34px rgba(0,0,0,.30);
+    border:1px solid var(--line);display:none;overflow:hidden;}
+  #pop.show{display:block;animation:popin .12s ease;}
+  @keyframes popin{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+  #pop .ph{padding:11px 14px 9px;color:#fff;position:relative;}
+  #pop .ph.both{background:var(--both);}
+  #pop .ph.g56{background:var(--g56);}
+  #pop .ph.g78{background:var(--g78);}
+  #pop .ph.na{background:#7c868e;}
+  #pop .code{font-family:"Liberation Serif",Georgia,serif;font-size:20px;font-weight:700;line-height:1;}
+  #pop .cluster{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.85;margin-top:4px;}
+  #pop .title{font-size:11px;font-weight:700;margin-top:5px;line-height:1.3;}
+  #pop .x{position:absolute;top:8px;right:9px;width:20px;height:20px;border-radius:50%;
+    background:rgba(255,255,255,.22);color:#fff;border:0;cursor:pointer;font-size:14px;line-height:1;
+    display:flex;align-items:center;justify-content:center;}
+  #pop .x:hover{background:rgba(255,255,255,.38);}
+  #pop .pb{padding:11px 14px 13px;}
+  #pop .deftext{font-size:11px;line-height:1.5;color:#2a333b;}
+  #pop .cov{margin-top:10px;font-size:9.5px;line-height:1.4;padding:7px 9px;border-radius:3px;
+    background:var(--mist);color:#36404a;display:flex;gap:7px;align-items:flex-start;}
+  #pop .cov .dotc{flex:0 0 9px;height:9px;border-radius:2px;margin-top:2px;}
+  #pop .cov.both .dotc{background:var(--both);}
+  #pop .cov.g56 .dotc{background:var(--g56);}
+  #pop .cov.g78 .dotc{background:var(--g78);}
+  #pop .cov.na .dotc{background:#9aa3aa;}
+  #pop .cov b{color:var(--ink);}
+  #pop .gapflag{margin-top:7px;font-size:9.5px;font-weight:700;color:#8a5a00;background:var(--cream);
+    border:1px solid #eadfc4;border-radius:3px;padding:6px 9px;}
+  #pop .gapflag::before{content:"\26A0  ";}
+</style>
+</head>
+<body>
+<section class="sheet">
+  <div class="page">
+    <div class="pagehead">
+      <span class="doc">Vertical Alignment · CCSS ELA · 2026-2027</span>
+      <span class="sec">Interactive Standards Coverage Map</span>
+    </div>
+    <h1>Which CCSS ELA Standards Are Reached <span class="accent">Across Grades 5-8</span></h1>
+    <p class="lede">Each cell is one CCSS anchor standard. Color shows where it is taught: <b>both grade bands</b>, the <b>Grades 5-6 Lokahi scope</b> only, or the <b>Grades 7-8 scope</b> only. A dark outline marks a <b>continuity gap</b> &mdash; covered in 5-6 but not carried into 7-8.</p>
+    <div class="clickhint">Click any chip to read its full Common Core definition</div>
+
+    <div class="layout">
+      <!-- ===== LEFT: MATRIX ===== -->
+      <div>
+        <table class="mx" id="mx">
+          <tr id="hdr"><th class="corner">Strand &nbsp;/&nbsp; Anchor &#8594;</th></tr>
+        </table>
+        <div class="legend">
+          <span class="k"><span class="sw both"></span> Both bands (5-6 &amp; 7-8)</span>
+          <span class="k"><span class="sw g56"></span> Grades 5-6 only (Lokahi)</span>
+          <span class="k"><span class="sw g78"></span> Grades 7-8 only (Carlos)</span>
+          <span class="k"><span class="sw gap"></span> Continuity gap (drops at 7-8)</span>
+          <span class="k"><span class="sw na"></span> Not applicable to strand</span>
+        </div>
+        <div class="note">
+          Sources: <b>lokahi standards.pdf</b> (Grades 5-6, Amplify Grade 6 100-Lesson Pathway 6A-6E + Grade 5 map; Jamie R. &amp; Jamie W.) and <b>ela-7-8-scope-and-sequence.html</b> (Grades 7-8, Mr. Carlos, quarter chips + Wilson Just Words). Definitions shown are the Common Core anchor standards at a grades 6-8 reading/complexity level; specific grades 5, 7, and 8 sub-standards refine this wording.
+        </div>
+      </div>
+
+      <!-- ===== RIGHT: PANELS ===== -->
+      <div>
+        <div class="panel goldtop">
+          <h3>Continuity Gaps</h3>
+          <div class="sub">Taught in Grades 5-6, <b>not</b> explicitly in the 7-8 chips &mdash; the vertical-alignment watch-items.</div>
+          <ul>
+            <li><b>RI.5, RI.7, RI.8, RI.9</b> &mdash; informational structure, multi-source / multimedia integration, evaluating arguments, comparing two texts.</li>
+            <li><b>RL.9</b> &mdash; comparing genres / a text to its source or historical account.</li>
+            <li><b>W.6, W.7, W.8</b> &mdash; tech publishing, sustained research, gathering / assessing sources.</li>
+            <li><b>SL.2, SL.3</b> &mdash; analyzing info across media and evaluating a speaker's argument.</li>
+          </ul>
+        </div>
+        <div class="panel inktop">
+          <h3>Strengths of the 7-8 Plan</h3>
+          <ul>
+            <li><b>Full Language strand (L.1-6)</b> via Morning Edit + Just Words.</li>
+            <li><b>Foundational RF.2-4</b> added through Just Words.</li>
+            <li><b>Writing 1-5 + 9-10</b> and <b>RL.1-7</b> fully carried, deeper revision.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagefoot">
+      <span>Hawai&#699;i Academy of Arts &amp; Science · ELA Grades 5-8</span>
+      <span><b>CCSS ELA Coverage Map</b> · Click chips for definitions</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POPOVER ===== -->
+<div id="pop" role="dialog" aria-modal="false">
+  <div class="ph" id="pop-h">
+    <button class="x" id="pop-x" aria-label="Close">&times;</button>
+    <div class="code" id="pop-code"></div>
+    <div class="cluster" id="pop-cluster"></div>
+    <div class="title" id="pop-title"></div>
+  </div>
+  <div class="pb">
+    <div class="deftext" id="pop-def"></div>
+    <div class="cov" id="pop-cov"><span class="dotc"></span><span id="pop-cov-text"></span></div>
+    <div class="gapflag" id="pop-gap" style="display:none;"></div>
+  </div>
+</div>
+
+<script>
+/* ---------- matrix coverage data ---------- */
+const STR = [
+  {code:'RL', name:'Reading: Literature',
+   cells:['both','both','both','both','both','both','both','na','g56','both'],
+   gap:  [0,0,0,0,0,0,0,0,1,0]},
+  {code:'RI', name:'Reading: Informational',
+   cells:['both','both','both','both','g56','both','g56','g56','g56','both'],
+   gap:  [0,0,0,0,1,0,1,1,1,0]},
+  {code:'W', name:'Writing',
+   cells:['both','both','both','both','both','g56','g56','g56','both','both'],
+   gap:  [0,0,0,0,0,1,1,1,0,0]},
+  {code:'SL', name:'Speaking &amp; Listening',
+   cells:['both','g56','g56','both','both','both','empty','empty','empty','empty'],
+   gap:  [0,1,1,0,0,0,0,0,0,0]},
+  {code:'L', name:'Language',
+   cells:['both','both','both','both','both','both','empty','empty','empty','empty'],
+   gap:  [0,0,0,0,0,0,0,0,0,0]},
+  {code:'RF', name:'Reading: Foundational',
+   cells:['na','g78','both','both','empty','empty','empty','empty','empty','empty'],
+   gap:  [0,0,0,0,0,0,0,0,0,0]},
+];
+
+/* ---------- CCSS anchor definitions (grades 6-8 level) ---------- */
+const CL = {
+  R123:'Key Ideas & Details', R456:'Craft & Structure',
+  R789:'Integration of Knowledge & Ideas', R10:'Range of Reading & Text Complexity',
+  W123:'Text Types & Purposes', W456:'Production & Distribution of Writing',
+  W789:'Research to Build & Present Knowledge', W10:'Range of Writing',
+  S123:'Comprehension & Collaboration', S456:'Presentation of Knowledge & Ideas',
+  L12:'Conventions of Standard English', L3:'Knowledge of Language',
+  L456:'Vocabulary Acquisition & Use',
+  RFp:'Print Concepts', RFpa:'Phonological Awareness', RFph:'Phonics & Word Recognition', RFf:'Fluency'
+};
+const DEF = {
+  RL:{
+    1:[CL.R123,'Cite textual evidence','Cite several pieces of textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text.'],
+    2:[CL.R123,'Theme & central idea','Determine a theme or central idea of a text and analyze its development over the course of the text; provide an objective summary.'],
+    3:[CL.R123,'Story & drama elements','Analyze how particular elements of a story or drama interact — e.g., how setting shapes characters or plot, or how dialogue propels the action.'],
+    4:[CL.R456,'Word meaning & tone','Determine the meaning of words and phrases as used in the text, including figurative and connotative meanings; analyze the impact of word choice on meaning and tone.'],
+    5:[CL.R456,'Text structure','Analyze how a drama’s or poem’s form or structure (e.g., soliloquy, sonnet) contributes to its meaning, and compare/contrast the structure of two texts.'],
+    6:[CL.R456,'Point of view','Analyze how an author develops and contrasts the points of view of different characters or narrators in a text.'],
+    7:[CL.R789,'Media versions','Compare and contrast a written story, drama, or poem to its audio, filmed, staged, or multimedia version, analyzing the effects of each medium.'],
+    8:[CL.R789,'(Not applicable)','Reading Anchor 8 — evaluating an argument and its claims — applies to informational text only. There is no RL.8 in the Common Core.'],
+    9:[CL.R789,'Compare across sources','Compare and contrast a fictional portrayal of a time, place, or character with a historical account, or analyze how an author draws on and transforms source material.'],
+    10:[CL.R10,'Range & complexity','Read and comprehend literature — stories, dramas, and poems — in the grades 6-8 text-complexity band independently and proficiently.']
+  },
+  RI:{
+    1:[CL.R123,'Cite textual evidence','Cite several pieces of textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text.'],
+    2:[CL.R123,'Central idea','Determine a central idea of a text and analyze its development over the course of the text; provide an objective summary.'],
+    3:[CL.R123,'Connections & distinctions','Analyze how a text makes connections among and distinctions between individuals, ideas, or events (e.g., through comparisons, analogies, or categories).'],
+    4:[CL.R456,'Word meaning','Determine the meaning of words and phrases as used in the text, including figurative, connotative, and technical meanings; analyze the impact of specific word choices.'],
+    5:[CL.R456,'Text structure','Analyze the structure an author uses to organize a text, including how major sections contribute to the whole and to the development of the ideas.'],
+    6:[CL.R456,'Author purpose','Determine an author’s point of view or purpose in a text and analyze how the author distinguishes their position from that of others.'],
+    7:[CL.R789,'Integrate media','Integrate information presented in different media or formats (e.g., visually, quantitatively) as well as in words to develop a coherent understanding of a topic.'],
+    8:[CL.R789,'Evaluate argument','Trace and evaluate the argument and specific claims in a text, assessing whether the reasoning is sound and the evidence relevant and sufficient.'],
+    9:[CL.R789,'Compare two texts','Analyze how two or more authors writing about the same topic shape their presentations by emphasizing different evidence or advancing different interpretations.'],
+    10:[CL.R10,'Range & complexity','Read and comprehend literary nonfiction in the grades 6-8 text-complexity band independently and proficiently.']
+  },
+  W:{
+    1:[CL.W123,'Argument','Write arguments to support claims with clear reasons and relevant evidence, using credible sources and an organization that anticipates counterclaims.'],
+    2:[CL.W123,'Informative / explanatory','Write informative/explanatory texts to examine a topic and convey ideas, concepts, and information through selection, organization, and analysis of relevant content.'],
+    3:[CL.W123,'Narrative','Write narratives to develop real or imagined experiences using effective technique, relevant descriptive details, and well-structured event sequences.'],
+    4:[CL.W456,'Clear & coherent writing','Produce clear and coherent writing in which the development, organization, and style are appropriate to task, purpose, and audience.'],
+    5:[CL.W456,'Plan, revise, edit','Develop and strengthen writing as needed by planning, revising, editing, rewriting, or trying a new approach, focusing on purpose and audience.'],
+    6:[CL.W456,'Publish with technology','Use technology, including the Internet, to produce and publish writing, link to and cite sources, and interact and collaborate with others.'],
+    7:[CL.W789,'Research projects','Conduct short research projects to answer a question, drawing on several sources and generating additional related, focused questions for further inquiry.'],
+    8:[CL.W789,'Gather & assess sources','Gather relevant information from multiple print and digital sources, assess the credibility of each, quote or paraphrase accurately, and avoid plagiarism with citations.'],
+    9:[CL.W789,'Evidence from texts','Draw evidence from literary or informational texts to support analysis, reflection, and research.'],
+    10:[CL.W10,'Range of writing','Write routinely over extended and shorter time frames for a range of discipline-specific tasks, purposes, and audiences.']
+  },
+  SL:{
+    1:[CL.S123,'Collaborative discussion','Engage effectively in a range of collaborative discussions, building on others’ ideas, posing questions, and expressing one’s own ideas clearly.'],
+    2:[CL.S123,'Analyze media','Analyze the main ideas and supporting details presented in diverse media and formats, and explain how the ideas clarify a topic, text, or issue.'],
+    3:[CL.S123,'Evaluate a speaker','Delineate a speaker’s argument and specific claims, evaluating the soundness of the reasoning and the relevance and sufficiency of the evidence.'],
+    4:[CL.S456,'Present findings','Present claims and findings, emphasizing salient points with relevant evidence, sound reasoning, and well-chosen details; use appropriate eye contact, volume, and pronunciation.'],
+    5:[CL.S456,'Multimedia in presentation','Include multimedia components and visual displays in presentations to clarify claims and findings and emphasize salient points.'],
+    6:[CL.S456,'Adapt speech','Adapt speech to a variety of contexts and tasks, demonstrating command of formal English when indicated or appropriate.']
+  },
+  L:{
+    1:[CL.L12,'Grammar & usage','Demonstrate command of the conventions of standard English grammar and usage when writing or speaking.'],
+    2:[CL.L12,'Capitalization, punctuation, spelling','Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing.'],
+    3:[CL.L3,'Knowledge of language','Use knowledge of language and its conventions to make effective choices when writing, speaking, reading, or listening.'],
+    4:[CL.L456,'Determine word meaning','Determine or clarify the meaning of unknown and multiple-meaning words using context clues, Greek and Latin affixes and roots, and reference materials.'],
+    5:[CL.L456,'Figurative language','Demonstrate understanding of figurative language, word relationships, and nuances in word meanings.'],
+    6:[CL.L456,'Academic vocabulary','Acquire and use accurately grade-appropriate general academic and domain-specific words and phrases; gather vocabulary knowledge independently.']
+  },
+  RF:{
+    1:[CL.RFp,'Print concepts','Demonstrate understanding of the organization and basic features of print. A K-1 foundational standard — not assessed in Grades 5-8.'],
+    2:[CL.RFpa,'Phonological awareness','Demonstrate understanding of spoken words, syllables, and sounds (phonemes). In Grades 7-8 this is carried by Wilson Just Words for students with decoding gaps.'],
+    3:[CL.RFph,'Phonics & word analysis','Know and apply grade-level phonics and word-analysis skills in decoding words, including syllable types and the meaningful parts of words (affixes and roots).'],
+    4:[CL.RFf,'Fluency','Read with sufficient accuracy and fluency to support comprehension — reading on-level text with purpose, expression, and self-correction.']
+  }
+};
+
+const COVTXT = {
+  both:['both','Reached in <b>both bands</b> &mdash; Grades 5-6 (Lokahi) and Grades 7-8 (Carlos).'],
+  g56:['g56','Taught in <b>Grades 5-6 (Lokahi)</b> only. Not explicitly in the 7-8 scope.'],
+  g78:['g78','Taught in <b>Grades 7-8 (Carlos)</b> only &mdash; via Wilson Just Words.'],
+  na:['na','Not applicable to this strand.']
+};
+
+/* ---------- build matrix ---------- */
+const mx=document.getElementById('mx'), hdr=document.getElementById('hdr');
+for(let i=1;i<=10;i++){const th=document.createElement('th');th.className='num';th.textContent=i;hdr.appendChild(th);}
+STR.forEach(s=>{
+  const tr=document.createElement('tr');
+  const lab=document.createElement('td');lab.className='row-label';
+  lab.innerHTML=s.code+'<span>'+s.name+'</span>';tr.appendChild(lab);
+  for(let i=0;i<10;i++){
+    const td=document.createElement('td');
+    const c=s.cells[i], num=i+1;
+    td.className='cell '+c+(s.gap[i]?' gap':'');
+    if(c!=='empty'){
+      td.innerHTML = (c==='na') ? '&ndash;' : s.code+'.'+num;
+      if(DEF[s.code] && DEF[s.code][num]){
+        td.classList.add('clickable');
+        td.dataset.strand=s.code; td.dataset.num=num; td.dataset.cov=c; td.dataset.gap=s.gap[i];
+      }
+    }
+    tr.appendChild(td);
+  }
+  mx.appendChild(tr);
+});
+
+/* ---------- popover ---------- */
+const pop=document.getElementById('pop');
+let curCell=null;
+function openPop(td){
+  const code=td.dataset.strand, num=+td.dataset.num, cov=td.dataset.cov, gap=td.dataset.gap==='1';
+  const d=DEF[code][num];
+  document.getElementById('pop-code').textContent=code+'.'+num;
+  document.getElementById('pop-cluster').textContent=d[0];
+  document.getElementById('pop-title').textContent=d[1];
+  document.getElementById('pop-def').textContent=d[2];
+  document.getElementById('pop-h').className='ph '+cov;
+  const ct=COVTXT[cov];
+  const covEl=document.getElementById('pop-cov');
+  covEl.className='cov '+ct[0];
+  document.getElementById('pop-cov-text').innerHTML=ct[1];
+  const gapEl=document.getElementById('pop-gap');
+  if(gap){gapEl.style.display='block';gapEl.innerHTML='Continuity gap &mdash; covered in Grades 5-6 but not carried into the 7-8 scope.';}
+  else{gapEl.style.display='none';}
+
+  if(curCell) curCell.classList.remove('sel');
+  curCell=td; td.classList.add('sel');
+
+  pop.classList.add('show');
+  // position near the cell, kept on-screen
+  const r=td.getBoundingClientRect(), pw=pop.offsetWidth, ph=pop.offsetHeight, m=8;
+  let left=r.left, top=r.bottom+6;
+  if(left+pw>window.innerWidth-m) left=Math.max(m, r.right-pw);
+  if(left<m) left=m;
+  if(top+ph>window.innerHeight-m) top=Math.max(m, r.top-ph-6);
+  pop.style.left=left+'px'; pop.style.top=top+'px';
+}
+function closePop(){pop.classList.remove('show'); if(curCell){curCell.classList.remove('sel');curCell=null;}}
+
+document.addEventListener('click',e=>{
+  const td=e.target.closest('.cell.clickable');
+  if(td){e.stopPropagation();openPop(td);return;}
+  if(!e.target.closest('#pop')) closePop();
+});
+document.getElementById('pop-x').addEventListener('click',e=>{e.stopPropagation();closePop();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePop();});
+window.addEventListener('resize',closePop);
+</script>
+</body>
+</html>

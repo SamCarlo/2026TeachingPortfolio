@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CCSS ELA Coverage Map · Grades 5-8 Vertical Alignment</title>
+<style>
+  :root{
+    --ink:#1f2933; --slate:#52606d; --teal:#2c6e8f; --teal-deep:#1d5673;
+    --gold:#d9a531; --gold-soft:#e8c878; --mist:#f4f6f8; --sky:#eaf2f6;
+    --cream:#fff8ec; --line:#d7dce1;
+    --both:#2c6e8f; --g56:#d9a531; --g78:#5b7c8d; --na:#e7eaed;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{font-family:"Liberation Sans","Segoe UI",Helvetica,Arial,sans-serif;color:var(--ink);background:#e7eaed;}
+  .serif{font-family:"Liberation Serif",Georgia,serif;}
+  .sheet{width:11in;min-height:8.5in;background:#fff;margin:.25in auto;
+    box-shadow:0 2px 10px rgba(0,0,0,.22);position:relative;overflow:hidden;}
+  @media print{body{background:#fff;}.sheet{margin:0;box-shadow:none;}}
+  @page{size:letter landscape;margin:.35in;}
+  .page{padding:.45in .55in .5in;}
+  .pagehead{display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:2.5px solid var(--ink);padding-bottom:7px;margin-bottom:12px;}
+  .pagehead .doc{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--slate);}
+  .pagehead .sec{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);font-weight:700;}
+  h1{font-family:"Liberation Serif",Georgia,serif;font-size:27px;line-height:1.08;margin-bottom:4px;}
+  h1 .accent{color:var(--teal);}
+  .lede{font-size:10.5px;line-height:1.5;color:var(--slate);max-width:9.4in;margin-bottom:12px;}
+  .lede b{color:var(--ink);}
+
+  .layout{display:grid;grid-template-columns:1fr .82fr;gap:18px;align-items:start;}
+
+  /* ===== MATRIX ===== */
+  table.mx{border-collapse:separate;border-spacing:3px;width:100%;}
+  table.mx th.corner{width:1.45in;text-align:left;font-size:9px;color:var(--slate);
+    letter-spacing:.06em;vertical-align:bottom;padding:0 6px 4px 2px;}
+  table.mx th.num{font-size:9px;color:var(--slate);font-weight:700;text-align:center;width:.42in;padding-bottom:3px;}
+  table.mx td.row-label{font-size:10px;font-weight:700;color:#fff;background:var(--ink);
+    padding:7px 9px;white-space:nowrap;border-radius:2px;}
+  table.mx td.row-label span{display:block;font-size:7.6px;font-weight:400;letter-spacing:.04em;
+    color:#cfd8de;margin-top:1px;text-transform:none;}
+  .cell{height:.42in;border-radius:2px;text-align:center;vertical-align:middle;
+    font-size:9px;font-weight:700;color:#fff;letter-spacing:.01em;position:relative;}
+  .cell.both{background:var(--both);}
+  .cell.g56{background:var(--g56);color:#4a3a12;}
+  .cell.g78{background:var(--g78);}
+  .cell.na{background:var(--na);color:#aab2b9;font-weight:400;}
+  .cell.gap{box-shadow:inset 0 0 0 2.5px var(--ink);}
+  .cell.empty{background:transparent;}
+  .cell .sub{display:block;font-size:7px;font-weight:400;opacity:.85;}
+
+  /* ===== LEGEND ===== */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 16px;margin-top:11px;font-size:9.5px;color:var(--slate);}
+  .legend .k{display:flex;align-items:center;gap:6px;}
+  .legend .sw{width:15px;height:15px;border-radius:2px;display:inline-block;}
+  .legend .sw.both{background:var(--both);}
+  .legend .sw.g56{background:var(--g56);}
+  .legend .sw.g78{background:var(--g78);}
+  .legend .sw.na{background:var(--na);}
+  .legend .sw.gap{background:#fff;box-shadow:inset 0 0 0 2.5px var(--ink);}
+
+  /* ===== SIDE PANELS ===== */
+  .panel{border:1px solid var(--line);border-top:3px solid var(--teal);padding:11px 13px;border-radius:2px;margin-bottom:11px;}
+  .panel.goldtop{border-top-color:var(--gold);}
+  .panel.inktop{border-top-color:var(--ink);}
+  .panel h3{font-size:12px;margin-bottom:3px;}
+  .panel .sub{font-size:9px;color:var(--slate);margin-bottom:7px;line-height:1.4;}
+  .panel ul{list-style:none;}
+  .panel li{font-size:9.6px;line-height:1.42;color:#36404a;padding-left:13px;position:relative;margin-bottom:5px;}
+  .panel li::before{content:"";position:absolute;left:0;top:5px;width:6px;height:6px;background:var(--gold);}
+  .panel.inktop li::before{background:var(--teal);}
+  .panel li b{color:var(--ink);}
+  .tag{display:inline-block;font-size:8px;font-weight:700;letter-spacing:.04em;
+    background:var(--cream);color:#9a7119;border-radius:8px;padding:1.5px 6px;margin-right:3px;}
+  .note{font-size:8.6px;color:var(--slate);line-height:1.45;margin-top:9px;border-top:1px solid var(--line);padding-top:7px;}
+  .pagefoot{display:flex;justify-content:space-between;align-items:center;
+    border-top:1px solid var(--line);padding-top:6px;margin-top:13px;
+    font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);}
+  .pagefoot b{color:var(--ink);}
+</style>
+</head>
+<body>
+<section class="sheet">
+  <div class="page">
+    <div class="pagehead">
+      <span class="doc">Vertical Alignment · CCSS ELA · 2026-2027</span>
+      <span class="sec">Standards Coverage Map</span>
+    </div>
+    <h1>Which CCSS ELA Standards Are Reached <span class="accent">Across Grades 5-8</span></h1>
+    <p class="lede">Each cell is one CCSS anchor standard. Color shows where it is taught: <b>both grade bands</b>, the <b>Grades 5-6 Lokahi scope</b> only, or the <b>Grades 7-8 scope</b> only. Cells with a dark outline are <b>continuity gaps</b> &mdash; standards covered in 5-6 that the 7-8 plan does not explicitly carry forward. Read together, the two programs cover essentially the full K-8 anchor set; the gaps are about <b>hand-off</b>, not absence.</p>
+
+    <div class="layout">
+      <!-- ===== LEFT: MATRIX ===== -->
+      <div>
+        <table class="mx" id="mx">
+          <tr id="hdr">
+            <th class="corner">Strand &nbsp;/&nbsp; Anchor &#8594;</th>
+          </tr>
+        </table>
+        <div class="legend">
+          <span class="k"><span class="sw both"></span> Both bands (5-6 &amp; 7-8)</span>
+          <span class="k"><span class="sw g56"></span> Grades 5-6 only (Lokahi)</span>
+          <span class="k"><span class="sw g78"></span> Grades 7-8 only (Carlos)</span>
+          <span class="k"><span class="sw gap"></span> Continuity gap (drops at 7-8)</span>
+          <span class="k"><span class="sw na"></span> Not applicable to strand</span>
+        </div>
+        <div class="note">
+          Sources: <b>lokahi standards.pdf</b> (Grades 5-6, Amplify Grade 6 100-Lesson Pathway 6A-6E + Grade 5 reading/language map; sign-offs Jamie R. &amp; Jamie W.) and <b>ela-7-8-scope-and-sequence.html</b> (Grades 7-8, Mr. Carlos, quarter standard chips + Wilson Just Words foundational block). Coverage is read at the anchor level; a strand chip such as "RI.1-4" counts anchors 1-4. RL.8 has no CCSS literature standard. Reading-Foundational (RF) applies only in 7-8 here, via Just Words.
+        </div>
+      </div>
+
+      <!-- ===== RIGHT: PANELS ===== -->
+      <div>
+        <div class="panel goldtop">
+          <h3>Continuity Gaps</h3>
+          <div class="sub">Taught in Grades 5-6, <b>not</b> explicitly in the 7-8 chips. These are the vertical-alignment watch-items.</div>
+          <ul>
+            <li><b>RI.5, RI.7, RI.8, RI.9</b> &mdash; informational text structure, multi-source / multimedia integration, evaluating arguments, comparing two texts. The 7-8 plan keeps RI.1-4 and RI.6 but leans literary.</li>
+            <li><b>RL.9</b> &mdash; comparing genres / a text to its source or historical account.</li>
+            <li><b>W.6, W.7, W.8</b> &mdash; publishing with technology, sustained research projects, and gathering / assessing sources. Research happens in Grade 7 Q3 but is chipped only as W.9.</li>
+            <li><b>SL.2, SL.3</b> &mdash; analyzing information across media and evaluating a speaker's argument.</li>
+          </ul>
+        </div>
+        <div class="panel inktop">
+          <h3>Strengths of the 7-8 Plan</h3>
+          <ul>
+            <li><b>Full Language strand (L.1-6)</b> via daily Morning Edit + Just Words, matching 5-6.</li>
+            <li><b>Foundational RF.2-4</b> (phonics, syllables, fluency) added through Just Words &mdash; a band the 5-6 scope only touches "as needed."</li>
+            <li><b>Writing 1-5 + 9-10</b> and <b>RL.1-7</b> fully carried, with deeper revision cycles.</li>
+          </ul>
+        </div>
+        <div class="panel goldtop" style="border-top-color:var(--teal);margin-bottom:0;">
+          <h3 style="font-size:11px;">Suggested moves</h3>
+          <div class="sub" style="margin-bottom:0;">Fold <span class="tag">RI.7/8/9</span><span class="tag">W.7/8</span> into the Grade 7 Brain Science research quarter and the Grade 8 Frankenstein/R&amp;J units; add <span class="tag">SL.2/3</span> to the Circle of Knowledge seminars. That closes every outlined cell without new units.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagefoot">
+      <span>Hawai&#699;i Academy of Arts &amp; Science · ELA Grades 5-8</span>
+      <span><b>CCSS ELA Coverage Map</b> · Reached / Not Reached by Band</span>
+    </div>
+  </div>
+</section>
+
+<script>
+// coverage codes: both | g56 | g78 | na | empty   (append " gap" via gap flag)
+const STR = [
+  {code:'RL', name:'Reading: Literature', n:10,
+   cells:['both','both','both','both','both','both','both','na','g56','both'],
+   gap:[0,0,0,0,0,0,0,0,1,0]},
+  {code:'RI', name:'Reading: Informational', n:10,
+   cells:['both','both','both','both','g56','both','g56','g56','g56','both'],
+   gap:[0,0,0,0,1,0,1,1,1,0]},
+  {code:'W', name:'Writing', n:10,
+   cells:['both','both','both','both','both','g56','g56','g56','both','both'],
+   gap:[0,0,0,0,0,1,1,1,0,0]},
+  {code:'SL', name:'Speaking &amp; Listening', n:10,
+   cells:['both','g56','g56','both','both','both','empty','empty','empty','empty'],
+   gap:[0,1,1,0,0,0,0,0,0,0]},
+  {code:'L', name:'Language', n:10,
+   cells:['both','both','both','both','both','both','empty','empty','empty','empty'],
+   gap:[0,0,0,0,0,0,0,0,0,0]},
+  {code:'RF', name:'Reading: Foundational', n:10,
+   cells:['na','g78','both','both','empty','empty','empty','empty','empty','empty'],
+   gap:[0,0,0,0,0,0,0,0,0,0]},
+];
+const mx = document.getElementById('mx');
+const hdr = document.getElementById('hdr');
+for(let i=1;i<=10;i++){const th=document.createElement('th');th.className='num';th.textContent=i;hdr.appendChild(th);}
+STR.forEach(s=>{
+  const tr=document.createElement('tr');
+  const lab=document.createElement('td');lab.className='row-label';
+  lab.innerHTML=s.code+'<span>'+s.name+'</span>';tr.appendChild(lab);
+  for(let i=0;i<10;i++){
+    const td=document.createElement('td');
+    const c=s.cells[i];
+    td.className='cell '+c+(s.gap[i]?' gap':'');
+    if(c!=='empty'){
+      if(c==='na'){td.innerHTML='&ndash;';}
+      else{td.innerHTML=s.code+'.'+(i+1);}
+    }
+    tr.appendChild(td);
+  }
+  mx.appendChild(tr);
+});
+</script>
+</body>
+</html>
